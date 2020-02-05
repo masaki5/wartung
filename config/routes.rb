@@ -13,6 +13,29 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
+  namespace :admin do
+    resources :logs
+  end
+
+  namespace :admin do
+    resources :parts
+  end
+
+  namespace :admin do
+    resources :cars
+  end
+
+  namespace :admin do
+    resources :users
+  end
+
+  resources :users
+
+  resources :cars
+
+  resources :parts
+
+  resources :logs
 
   get 'homes/top'
   get 'homes/about'
