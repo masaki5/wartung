@@ -1,5 +1,12 @@
 class Part < ApplicationRecord
     belongs_to :car
+    has_many :logs
 
-    has_many :log
+    after_save :create_log
+
+    def create_log
+        log = Log.new
+        log.part_id = id
+        log.save
+    end
 end

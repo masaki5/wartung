@@ -1,5 +1,12 @@
 <h1>New Log</h1>
 
+<%= form_for(@log) do |f| %>
+<%= @parts.each do |part|%>
+<% part.name %>
+
+<!--f.hidden_field :car_id -->
+<% end %>
+<% end %>
 <%= render 'form', log: @log %>
 
 <%= link_to 'Back', logs_path %>

@@ -31,9 +31,11 @@ Rails.application.routes.draw do
 
   resources :users
 
-  resources :cars
+  resources :cars do
 
   resources :parts
+
+  end
 
   resources :logs
 

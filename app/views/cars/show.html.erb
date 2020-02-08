@@ -1,9 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
+<h3>
+  <strong>会員名</strong>
+  <%= @car.user.name %><br>
+  <strong>車両情報</strong>
   <%= @car.name %>
-</p>
+</h3>
 
+
+<br>
+
+<tbody>
+      <% @parts.each do |part| %>
+      <%= link_to part.name, car_part_path(:car_id => @car.id, :id => part.id) %>
+      <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
+      <% end %>
+</tbody>
+
+<br>
+<%= render partial: 'parts/new', locals: { car: @car, part: @part} %>
+<br>
+<%= link_to '履歴作成', new_log_path %>
+<%= link_to "履歴確認", logs_path%>
+<br>
 <%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<%= link_to 'Back', car_path %>

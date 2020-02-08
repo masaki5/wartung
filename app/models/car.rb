@@ -1,6 +1,6 @@
 class Car < ApplicationRecord
-    belongs_to :user, optional: true
+    belongs_to :user
 
-    has_many :log
-    has_many :part
+    has_many :logs, dependent: :destroy
+    has_many :parts, dependent: :destroy
 end

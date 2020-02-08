@@ -1,6 +1,15 @@
 <h1>Editing Car</h1>
 
-<%= render 'form', car: @car %>
+<%= form_for(@car) do |f| %>
+	<div>
+		<%= f.text_field :name %>
+	</div>
+
+
+	<div class="actions row">
+		<%= f.submit "車両情報変更" %>
+	</div>
+  <% end %>
 
 <%= link_to 'Show', @car %> |
 <%= link_to 'Back', cars_path %>

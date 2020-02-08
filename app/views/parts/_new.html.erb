@@ -1,6 +1,6 @@
-<h1>New Part</h1>
+<h1>部品追加</h1>
 
-<%= form_for(@part) do |f| %>
+<%= form_for [car, part]  do |f| %>
 <div class="field row">
     <%= f.label "部品名" %>
     <%= f.text_field :name %>
@@ -10,10 +10,9 @@
     <%= f.text_area :introduction %>
 </div>
 
+<%= f.hidden_field :car_id, :value => car.id %>
+
 <div class="actions row">
     <%= f.submit "新規登録" %>
 </div>
 <% end %>
-
-
-<%= link_to 'Back', parts_path %>

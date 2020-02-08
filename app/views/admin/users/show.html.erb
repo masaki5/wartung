@@ -10,5 +10,5 @@
   <%= @part.introduction %>
 </p>
 
-<%= link_to 'Edit', edit_car_part_path(:car_id => @car.id, :id => @part.id) %> |
-<%= link_to 'Back', car_path %>
+<%= link_to 'Edit', edit_part_path(@part) %> |
+<%= link_to 'Back', parts_path %>
