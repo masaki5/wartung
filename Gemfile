@@ -65,14 +65,14 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-
 gem "refile"
-
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-
 gem 'kaminari'
-
 gem 'paranoia'
-
 gem 'pry-byebug'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
