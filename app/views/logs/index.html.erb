@@ -1,3 +1,5 @@
+<div class ="container">
+  <div class ="row">
 <p id="notice"><%= notice %></p>
 
 <h1>履歴</h1>
@@ -9,21 +11,30 @@
     </tr>
   </thead>
 
-
   <tbody>
     <% @logs.each do |log| %>
       <tr>
       <td><%= log.id %></td>
-      <td><%= log.part %></td>
+      <td><%=  %></td>
+      <td><%= log.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分%-S秒") %></td>
       <td><%=  %></td>
         <td><%= link_to 'Show', car_log_path(@car, log) %></td>
         <td><%= link_to 'Edit', edit_car_log_path(@car, log) %></td>
         <td><%= link_to 'Destroy', car_log_path(@car, log), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <% @part.each do |part| %>
+      <tr>
+      <td><%= part.id %></td>
+      <td><%= part.name %></td>
+      <td><%=  %></td></tr>
+      <% end %>
   </tbody>
 </table>
 
 <br>
 
 <%= link_to '履歴作成', new_car_log_path(@car) %>
+
+</div>
+</div>

@@ -4,18 +4,21 @@ class LogsController < ApplicationController
 
   def index
     @car = Car.find(params[:car_id])
+    @part = @car.parts
     @logs = @car.logs
   end
 
   def show
     @log = Log.find(params[:id])
+    @car = Car.find(params[:car_id])
+    @part = @car.parts
   end
 
   def new
     @log = Log.new
-    @parts = Part.all
+    @car = Car.find(params[:car_id])
     #@part = Part.find(params[:part_id])
-   # @parts = car.part
+    @part = @car.parts
   end
 
   def edit
@@ -24,6 +27,12 @@ class LogsController < ApplicationController
 
 
   def create
+    #part = Part.find(params[:part_id])
+    car = Car.find(params[:car_id])
+    log = car.logs.new(log_params)
+    log.save
+    @logs = car.logs
+    redirect_to root_path
   end
 
 
