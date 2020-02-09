@@ -25,6 +25,9 @@ class CarsController < ApplicationController
     car = Car.new(car_params)
     car.user_id = current_user.id
     car.save
+    #part = car.parts.new(part_params)
+    #part.car_id = car.id
+    #part.save
     #Part.create(car_id: car.id, genre: '')
     redirect_to cars_path(car.id)
   end

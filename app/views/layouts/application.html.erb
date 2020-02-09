@@ -12,34 +12,34 @@
   <body>
 
   <header>
-      <div>
+      <div class="container">
         <nav class="nav navbar-nav navbar-left" style="color: #fff">
-         <h3><%= link_to "wagen", root_path, :style=>"color:white;" %></h3>
+         <h3><%= link_to "wagen", root_path, :style=>"color:blue;" %></h3>
         </nav>
          <nav>
           <ul class="nav navbar-nav navbar-right">
 
               <% if admin_signed_in? %>
-                  <li><%= link_to "会員一覧", admin_users_path, :style=>"color:red;" %></li>
+                  <li><%= link_to "会員一覧", admin_users_path, :style=>"color:blue;" %></li>
                   <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></button>
                   <!--  -->
                   <p class="navbar-text" style="color:red;">管理ログイン中</p>
               <% elsif user_signed_in? %>
-                  <li><%= link_to "about", root_path, :style=>"color:red;" %></li>
-                  <li><%= link_to "マイページ", root_path(current_user), :style=>"color:red;" %></li>
+                  <li><%= link_to "about", homes_about_path, :style=>"color:blue;" %></li>
+                  <li><%= link_to "マイページ", root_path(current_user), :style=>"color:blue;" %></li>
                   <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
-                  <p class="navbar-text" style="color: #fff">ログイン中</p>
+                  <p class="navbar-text" style="color: blue">ログイン中</p>
               <% else %>
                   <li><%= link_to "Home", root_path, :style=>"color:red;" %></li>
                   <li><%= link_to "About", homes_about_path, :style=>"color:red;" %></li>
-                  <li><%= link_to "新規登録", new_user_registration_path, :style=>"color:red;" %></li>
+                  <li><%= link_to "新規登録", new_user_registration_path, :style=>"color:blue;" %></li>
                   <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログイン", new_user_session_path %></button>
-                  <li><p class="navbar-text" style="color:red;">未ログイン</p></li>
+                  <li><p class="navbar-text" style="color:blue;">未ログイン</p></li>
               <% end %>
 
           </ul>
          </nav>
-      </div>
+      </<div>
     </header>
     <%= yield %>
   </body>

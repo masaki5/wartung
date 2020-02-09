@@ -33,11 +33,15 @@ Rails.application.routes.draw do
 
   resources :cars do
 
-  resources :parts
+    resources :parts do
+      resources :logs , :controller => "parts/logs"
+    end
+
+    resources :logs
 
   end
 
-  resources :logs
+  #resources :logs
 
   get 'homes/top'
   get 'homes/about'

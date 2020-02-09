@@ -1,4 +1,4 @@
-class LogsController < ApplicationController
+class Parts::LogsController < ApplicationController
   #before_action :set_log, only: [:show, :edit, :update, :destroy]
 
 

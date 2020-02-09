@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <h1>登録車両</h1>
@@ -11,12 +12,12 @@
   </thead>
 
   <tbody>
-    <% @cars.each do |c| %>
+    <% @cars.each do |car| %>
       <tr>
-        <td><%= link_to c.name, car_parts_path(c.id) %></td>
-        <td><%= link_to 'Show', car_path(c.id) %></td>
-        <td><%= link_to 'Edit', edit_car_path(c.id) %></td>
-        <td><%= link_to 'Destroy', car_path(c.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to car.name, car_parts_path(car.id) %></td>
+        <td><%= link_to 'Show', car_path(car.id) %></td>
+        <td><%= link_to 'Edit', edit_car_path(car.id) %></td>
+        <td><%= link_to 'Destroy', car_path(car.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,3 +26,4 @@
 <br>
 
 <%= link_to '新規登録', new_car_path %>
+</div>
