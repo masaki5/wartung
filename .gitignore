@@ -29,3 +29,7 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# デプロイ必要記載
+# .envに記載したデータベースの情報はgitで管理されることはなく、GitHubにあがることもありません。
+/.env

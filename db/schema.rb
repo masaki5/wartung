@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_05_081740) do
+ActiveRecord::Schema.define(version: 2020_02_09_113838) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -32,8 +32,16 @@ ActiveRecord::Schema.define(version: 2020_02_05_081740) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "logs", force: :cascade do |t|
+  create_table "log_parts", force: :cascade do |t|
+    t.integer "log_id"
     t.integer "part_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["log_id"], name: "index_log_parts_on_log_id"
+    t.index ["part_id"], name: "index_log_parts_on_part_id"
+  end
+
+  create_table "logs", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
