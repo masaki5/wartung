@@ -1,4 +1,24 @@
-<p id="notice"><%= notice %></p>
+<div class ="container">
+  <div class ="low">
+    <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_log_path(@log) %> |
-<%= link_to 'Back', logs_path %>
+    <%= @log.id %>
+    <table>
+      <thead>
+      <tr><th colspan="3">交換部品</th></tr>
+      </thead>
+      <tbody>
+      <% @part.each do |part| %>
+      <tr>
+      <td><%= part.name %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <%= link_to 'Edit', edit_car_log_path(@car, @log) %> |
+      <%= link_to 'Back', car_logs_path(@car, @log) %>
+
+
+  </div>
+</div>

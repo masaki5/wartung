@@ -1,3 +1,4 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
 
 <h1>Parts</h1>
@@ -12,13 +13,13 @@
   </thead>
 
   <tbody>
-    <% @parts.each do |part| %>
+    <% @part.each do |part| %>
       <tr>
         <td><%= part.name %></td>
         <td><%= part.introduction %></td>
-        <td><%= link_to 'Show', part %></td>
-        <td><%= link_to 'Edit', edit_part_path(part) %></td>
-        <td><%= link_to 'Destroy', part, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', admin_part_path(part) %></td>
+        <td><%= link_to 'Edit', edit_admin_part_path(part) %></td>
+        <td><%= link_to 'Destroy', admin_part_path(part), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +27,8 @@
 
 <br>
 
-<%= link_to 'New Part', new_part_path %>
+<%= link_to 'その他新しく作成', new_car_part_path %>
+
+<%= link_to "履歴作成",new_log_path %>
+<%= link_to "履歴確認", logs_path%>
+</div>
