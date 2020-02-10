@@ -1,6 +1,19 @@
 <h1>Editing Part</h1>
 
-<%= render 'form', part: @part %>
+<%= form_for [@car, @part] do |f| %>
+<div class="field row">
+    <%= f.label "部品名" %>
+    <%= f.text_field :name %>
+</div>
+<div class="field row">
+    <%= f.label "商品説明" %>
+    <%= f.text_area :introduction %>
+</div>
 
-<%= link_to 'Show', @part %> |
-<%= link_to 'Back', parts_path %>
+<div class="actions row">
+    <%= f.submit "編集" %>
+</div>
+<% end %>
+
+<%= link_to 'Show', car_path(@car) %> |
+<%= link_to 'Back', car_path(@car) %>

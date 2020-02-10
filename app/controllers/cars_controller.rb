@@ -1,12 +1,16 @@
 class CarsController < ApplicationController
+  before_action :authenticate_user!
   #before_action :set_car, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cars = Car.all
+    @cars = current_user.cars.all
   end
 
   def show
     @car = Car.find(params[:id])
+    @partss = Part.all
+	  @part = Part.new
+	  @parts = @car.parts
   end
 
   def new
@@ -18,28 +22,25 @@ class CarsController < ApplicationController
   end
 
   def create
-    @car = Car.new(car_params)
-
-    respond_to do |format|
-      if @car.save
-        format.html { redirect_to @car, notice: 'Car was successfully created.' }
-        format.json { render :show, status: :created, location: @car }
-      else
-        format.html { render :new }
-        format.json { render json: @car.errors, status: :unprocessable_entity }
-      end
-    end
+    car = Car.new(car_params)
+    car.user_id = current_user.id
+    car.save
+    #part = car.parts.new(part_params)
+    #part.car_id = car.id
+    #part.save
+    #Part.create(car_id: car.id, genre: '')
+    redirect_to cars_path(car.id)
   end
 
   def update
-    @car = Car.find(params[:id])
-      @car.update(car_params)
-      redirect_to cars_path
+    car = Car.find(params[:id])
+    car.update(car_params)
+    redirect_to cars_path
   end
 
   def destroy
-    @car = Car.find(params[:id])
-    @car.destroy
+    car = Car.find(params[:id])
+    car.destroy
     redirect_to cars_path
 end
 

@@ -1,2 +1,8 @@
+<div class="container">
 <h1>Homes#top</h1>
-<p>Find me in app/views/homes/top.html.erb</p>
+
+<%= link_to "車両一覧",cars_path %>
+<%= link_to "マイページ", user_path(current_user) %>
+
+  <%= @user %>
+  </div>

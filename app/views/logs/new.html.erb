@@ -1,5 +1,32 @@
+<div class = "container">
+  <div class = "row">
 <h1>New Log</h1>
 
-<%= render 'form', log: @log %>
 
-<%= link_to 'Back', logs_path %>
+
+<table>
+    <thead>
+    <tr>
+        <th>パーツ名</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <%= form_for [@car, @log] do |f| %>
+    <% @part.each do |part|%>
+    <tr>
+    <td>
+    <%= part.name %>
+    <%= f.check_box :part %>
+    </td></tr>
+    <!--f.hidden_field :part_id -->
+    <% end %>
+    <%= f.submit "履歴作成"%>
+    <% end %>
+    </tbody>
+<table>
+
+<%= link_to 'Back', root_path %>
+
+</div>
+</div>

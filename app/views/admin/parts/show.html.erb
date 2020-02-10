@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>部品名</strong>
+  <%= @part.name %>
+</p>
+
+<p>
+  <strong>部品説明</strong>
+  <%= @part.introduction %>
+</p>
+
+<%= link_to 'Edit', edit_admin_part_path(@part) %> |
+<%= link_to 'Back', admin_parts_path %>

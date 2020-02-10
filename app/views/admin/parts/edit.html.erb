@@ -1,0 +1,23 @@
+<div class="container">
+<h1>部品編集</h1>
+
+<%= form_for [:admin, @part] do |f| %>
+
+<div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :introduction %>
+    <%= f.text_field :introduction %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<%= link_to 'Show', admin_part_path %> |
+<%= link_to 'Back', admin_parts_path %>
+
+</div>
