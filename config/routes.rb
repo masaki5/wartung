@@ -41,6 +41,10 @@ Rails.application.routes.draw do
 
   end
 
+  namespace :admin do
+    get 'homes/top'
+  end
+
   #resources :logs
 
   get 'homes/top'

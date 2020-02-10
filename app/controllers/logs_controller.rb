@@ -6,6 +6,7 @@ class LogsController < ApplicationController
     @car = Car.find(params[:car_id])
     @part = @car.parts
     @logs = @car.logs
+    #@log = 
   end
 
   def show
