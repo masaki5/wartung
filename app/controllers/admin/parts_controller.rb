@@ -34,8 +34,8 @@ class Admin::PartsController < ApplicationController
 
 
   def destroy
-    part = Part.find(params[:id])
-    part.destroy
+    @part = Part.find(params[:id])
+    @part.destroy
     redirect_to admin_parts_path, notice: "successfully delete book!"
   end
 

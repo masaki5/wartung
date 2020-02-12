@@ -6,8 +6,12 @@ class PartsController < ApplicationController
     def show
       @car = Car.find(params[:car_id])
       @part = Part.find(params[:id])
-      #@parts = car.part
+      #@log = Log.find(params[:id])
+      #@log = @part.logs
+      #@logs = @log.parts
+      #@parts = car.part car.log
       #@part = @cars.parts
+      @logs = @part.log
     end
 
     def edit
@@ -21,6 +25,9 @@ class PartsController < ApplicationController
     end
 
     def create
+
+      #if
+      #Part.where(name: 'name.id').first_or_create
       car = Car.find(params[:car_id])
       part = car.parts.new(part_params)
       part.car_id = car.id
@@ -36,9 +43,10 @@ class PartsController < ApplicationController
     end
 
     def destroy
+      #parts destory routes[:car_id][:id]ここまでは持ってこれてる
       part = Part.find(params[:id])
       part.destroy
-      redirect_to parts_path
+      redirect_to request.referrer
     end
 
     private

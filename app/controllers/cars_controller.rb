@@ -8,6 +8,8 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+    #@part = Part.find(params[:part_id])使えない
+    #@lof = Log.find(params[:log_id])使えない
     @partss = Part.all
 	  @part = Part.new
 	  @parts = @car.parts

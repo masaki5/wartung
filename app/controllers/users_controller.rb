@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @cars = current_user.cars.all
     end
 
     def edit
