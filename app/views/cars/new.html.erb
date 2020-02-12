@@ -1,17 +1,29 @@
-<div class="container">
 <h1>新規車両登録</h1>
 
-<%= form_for(@car) do |f| %>
-	<div>
-		<%= "車両名" %>
-		<%= f.text_field :name %>
-	</div>
+	<%= form_for(@car) do |f| %>
+		<div>
+			<%= "車両名" %>
+			<%= f.text_field :name %>
+		</div>
 
+		<div>
+			<%= "走行距離" %>
+			<%= f.text_field :mileage %><p>km</p>
+		</div>
 
-	<div class="actions row">
-		<%= f.submit "車両登録" %>
-	</div>
-  <% end %>
+		<div>
+			<%= "点検日" %>
+			<%= f.date_field :inspection %>
+		</div>
+
+		<div>
+			<%= "車両登録日" %>
+			<%= f.date_field :register %>
+		</div>
+
+		<div class="actions row">
+			<%= f.submit "車両登録" %>
+		</div>
+	<% end %>
 
 <%= link_to 'Back', cars_path %>
-</div>

@@ -4,15 +4,17 @@ class LogsController < ApplicationController
 
   def index
     @car = Car.find(params[:car_id])
+    @log = Log.where(params[:id])
+    #@parts = Part.find(params[:id])
     @part = @car.parts
     @logs = @car.logs
-    #@log = 
   end
 
   def show
     @log = Log.find(params[:id])
     @car = Car.find(params[:car_id])
     @part = @car.parts
+    @logs = @log.parts
   end
 
   def new
@@ -28,6 +30,7 @@ class LogsController < ApplicationController
 
 
   def create
+
     #part = Part.find(params[:part_id])
     car = Car.find(params[:car_id])
     log = car.logs.new(log_params)
@@ -42,6 +45,9 @@ class LogsController < ApplicationController
 
 
   def destroy
+    log = Log.find(params[:id])
+    log.destroy
+    redirect_to request.referrer
   end
 
   private

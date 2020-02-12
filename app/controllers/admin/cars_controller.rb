@@ -1,29 +1,21 @@
 class Admin::CarsController < ApplicationController
     #before_action :set_car, only: [:show, :edit, :update, :destroy]
 
-  # GET /cars
-  # GET /cars.json
   def index
-    @cars = Car.all
-    @car = user.car
+    #userのcar探す
+    @car = Car.where(user_id: params[:user_id])
   end
 
-  # GET /cars/1
-  # GET /cars/1.json
   def show
   end
 
-  # GET /cars/new
   def new
     @car = Car.new
   end
 
-  # GET /cars/1/edit
   def edit
   end
 
-  # POST /cars
-  # POST /cars.json
   def create
     @car = Car.new(car_params)
 

@@ -13,20 +13,25 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  namespace :admin do
-    resources :logs
-  end
+  #namespace :admin do
+    #resources :logs
+  #end
+
+  #namespace :admin do
+    #resources :parts
+  #end
+
+  #namespace :admin do
+    #resources :cars
+  #end
 
   namespace :admin do
-    resources :parts
-  end
-
-  namespace :admin do
-    resources :cars
-  end
-
-  namespace :admin do
-    resources :users
+    resources :users do
+      resources :cars do
+        resources :parts
+        resources :logs
+      end
+    end
   end
 
   resources :users

@@ -1,16 +1,75 @@
-<div class="container">
-  <div class="row">
-<p id="notice"><%= notice %></p>
-<div class="col-xs-6">
-<h3>
-  <strong>会員名</strong>
-  <%= @car.user.name %><br>
-  <strong>車両情報</strong>
-  <%= @car.name %>
-</h3>
+<div class="row">
+
+  <p id="notice"><%= notice %></p>
+
+  <div class="col-xs-6">
+  <h3><ul>
+    <strong>会員名</strong>
+    <%= @car.user.name %>
+    <h3>車両情報</h3>
+    <li><strong>車両名</strong>
+    <%= @car.name %></li>
+    <li><strong>走行距離</strong>
+    <%= number_to_currency(@car.mileage) %></li>
+
+    <%= form_for(@car) do |f| %>
+    <div>
+    <strong>走行距離</strong>
+      <%= f.text_field :mileage, :size=>"6" %>km
+    </div>
+
+    <div class="actions row">
+      <%= f.submit "走行距離変更" %>
+    </div>
+    <% end %>
+
+    <%= @today - @last_day %>
+
+    <%= @cars %>
+
+
+    <li><strong>点検日</strong>
+    <%= @car.inspection %></li>
+    <li><strong>車両登録日</strong>
+    <%= @car.register %></li>
+  </h3></ul>
+
+  <p>1年点検</p><p>残り</p><%=  %>
+  <p>2年点検</p><p>残り</p><%=  %>
+  </div>
+
+  <div class="col-xs-6">
+  <table>
+    <thead>
+      <tr>
+        <th>パーツ名</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% @parts.each do |part| %>
+        <tr>
+        <td>
+        <%= link_to part.name, car_part_path(:car_id => @car.id, :id => part.id) %>
+        </td>
+        <td><%= link_to "削除", car_part_path(:car_id => @car.id, :id => part.id), method: :delete%></td>
+        <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="col-xs-6">
+  <%= render partial: 'parts/new', locals: { car: @car, part: @part} %>
+  <br>
+  <%= link_to '履歴作成', new_car_log_path(@car) %>
+  <%= link_to "履歴確認", car_logs_path(@car) %>
+  <br>
+  <%= link_to '車両情報編集', edit_car_path(@car) %> |
+  <%= link_to '戻る', cars_path %>
+  </div>
 </div>
 
-<div class="col-xs-6">
 <table>
   <thead>
     <tr>
@@ -21,23 +80,10 @@
       <% @parts.each do |part| %>
       <tr>
       <td>
-      <%= link_to part.name, car_part_path(:car_id => @car.id, :id => part.id) %>
+      <%= part.name %>
       </td>
       <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
       </tr>
       <% end %>
   </tbody>
 </table>
-</div>
-<br>
-
-<%= render partial: 'parts/new', locals: { car: @car, part: @part} %>
-<br>
-<%= link_to '履歴作成', new_car_log_path(@car) %>
-<%= link_to "履歴確認", car_logs_path(@car) %>
-<br>
-<%= link_to '車両情報編集', edit_car_path(@car) %> |
-<%= link_to '戻る', cars_path %>
-
-</div>
-</div> 

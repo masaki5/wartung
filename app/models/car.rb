@@ -3,4 +3,7 @@ class Car < ApplicationRecord
 
     has_many :parts, dependent: :destroy
     has_many :logs, through: :parts
+
+    validates :name, presence: true
+    validates :mileage, presence: true
 end
