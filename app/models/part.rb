@@ -6,8 +6,9 @@ class Part < ApplicationRecord
     #has_one :log_part, dependent: :destroy
     #has_one :log, dependent: :destroy, through: :log_part
 
-
+    validates :name, presence: true
     validates :name, uniqueness: { scope: :car_id }
+    validates :introduction, presence: true
     #part createした際にlogも一緒に作成
     after_update :create_log
 

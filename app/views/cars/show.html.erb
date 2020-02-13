@@ -23,13 +23,19 @@
       </div>
     <% end %>
 
+    <li><strong>車両経年数</strong>
+    <%= @age %>年</li>
     <li><strong>点検日</strong>
     <%= @car.inspection %></li>
+    <li><strong>車検日</strong>
+    <%= @car.car_inspection %></li>
     <li><strong>車両登録日</strong>
     <%= @car.register %></li>
   </h3></ul>
-    <p>1年点検まで</p>残り<%= @remain %>日<br>
-    <p>2年点検まで</p>残り<%= @w %>日<br>
+  <div>
+    <p>1年点検まで残り<%= @v1 %>日</p></div>
+  <div><br>
+    <p>2年点検まで残り<%= @v2 %>日</p></div>
     </div>
 
   <div class="col-xs-6">

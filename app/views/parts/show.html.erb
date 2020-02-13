@@ -10,11 +10,12 @@
   <%= @part.introduction %>
 </p>
 
-<%= link_to 'log詳細', car_part_log_path(@car, @part) %>
+<%= link_to 'log詳細(parts/logs)', car_part_log_path(@car, @part) %>
 <%= link_to 'Edit', edit_car_part_path(:car_id => @car.id, :id => @part.id) %> |
 <%= link_to 'Back', car_path(@car.id) %>
 
 <% @logs.each do |log| %>
 <tr>
 <td><%= log.created_at.strftime("%Y年%-m月%-d日") %></td>
+<td><%= log.part.name %></td>
 <% end %>
