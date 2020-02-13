@@ -6,4 +6,7 @@ class Car < ApplicationRecord
 
     validates :name, presence: true
     validates :mileage, presence: true
+    validates :register, presence: true
+    validates :inspection, presence: true
+    validates :car_inspection, presence: true
 end

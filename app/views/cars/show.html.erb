@@ -13,50 +13,50 @@
     <%= number_to_currency(@car.mileage) %></li>
 
     <%= form_for(@car) do |f| %>
-    <div>
-    <strong>走行距離</strong>
-      <%= f.text_field :mileage, :size=>"6" %>km
-    </div>
+      <div>
+      <strong>走行距離</strong>
+        <%= f.text_field :mileage, :size=>"6" %>km
+      </div>
 
-    <div class="actions row">
-      <%= f.submit "走行距離変更" %>
-    </div>
+      <div class="actions row">
+        <%= f.submit "走行距離変更" %>
+      </div>
     <% end %>
 
-    <%= @today - @last_day %>
-
-    <%= @cars %>
-
-
+    <li><strong>車両経年数</strong>
+    <%= @age %>年</li>
     <li><strong>点検日</strong>
     <%= @car.inspection %></li>
+    <li><strong>車検日</strong>
+    <%= @car.car_inspection %></li>
     <li><strong>車両登録日</strong>
     <%= @car.register %></li>
   </h3></ul>
-
-  <p>1年点検</p><p>残り</p><%=  %>
-  <p>2年点検</p><p>残り</p><%=  %>
-  </div>
+  <div>
+    <p>1年点検まで残り<%= @v1 %>日</p></div>
+  <div><br>
+    <p>2年点検まで残り<%= @v2 %>日</p></div>
+    </div>
 
   <div class="col-xs-6">
-  <table>
-    <thead>
-      <tr>
-        <th>パーツ名</th>
-      </tr>
-    </thead>
-    <tbody>
-        <% @parts.each do |part| %>
+    <table>
+      <thead>
         <tr>
-        <td>
-        <%= link_to part.name, car_part_path(:car_id => @car.id, :id => part.id) %>
-        </td>
-        <td><%= link_to "削除", car_part_path(:car_id => @car.id, :id => part.id), method: :delete%></td>
-        <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
+          <th>パーツ名</th>
         </tr>
-        <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+          <% @parts.each do |part| %>
+          <tr>
+          <td>
+          <%= link_to part.name, car_part_path(:car_id => @car.id, :id => part.id) %>
+          </td>
+          <td><%= link_to "削除", car_part_path(:car_id => @car.id, :id => part.id), method: :delete%></td>
+          <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
+          </tr>
+          <% end %>
+      </tbody>
+    </table>
   </div>
 
   <div class="col-xs-6">
@@ -69,21 +69,3 @@
   <%= link_to '戻る', cars_path %>
   </div>
 </div>
-
-<table>
-  <thead>
-    <tr>
-      <th>パーツ名</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @parts.each do |part| %>
-      <tr>
-      <td>
-      <%= part.name %>
-      </td>
-      <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
-      </tr>
-      <% end %>
-  </tbody>
-</table>
