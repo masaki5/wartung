@@ -6,18 +6,13 @@ class PartsController < ApplicationController
     def show
       @car = Car.find(params[:car_id])
       @part = Part.find(params[:id])
-      #@parts = car.part
-      #@part = @cars.parts
+      @logs = @part.logs
     end
 
     def edit
       @car = Car.find(params[:car_id])
       @part = Part.find(params[:id])
 
-    end
-
-    def new
-      @part = Part.new
     end
 
     def create
@@ -38,7 +33,7 @@ class PartsController < ApplicationController
     def destroy
       part = Part.find(params[:id])
       part.destroy
-      redirect_to parts_path
+      redirect_to request.referrer
     end
 
     private

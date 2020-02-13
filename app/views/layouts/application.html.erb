@@ -14,7 +14,7 @@
   <header>
       <div class="container">
         <nav class="nav navbar-nav navbar-left" style="color: #fff">
-         <h3><%= link_to "wagen", root_path, :style=>"color:blue;" %></h3>
+         <h3><%= link_to "wartung", root_path, :style=>"color:blue;" %></h3>
         </nav>
          <nav>
           <ul class="nav navbar-nav navbar-right">
@@ -26,7 +26,7 @@
                   <p class="navbar-text" style="color:red;">管理ログイン中</p>
               <% elsif user_signed_in? %>
                   <li><%= link_to "about", homes_about_path, :style=>"color:blue;" %></li>
-                  <li><%= link_to "マイページ", root_path(current_user), :style=>"color:blue;" %></li>
+                  <li><%= link_to "マイページ", user_path(current_user), :style=>"color:blue;" %></li>
                   <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
                   <p class="navbar-text" style="color: blue">ログイン中</p>
               <% else %>
@@ -41,6 +41,8 @@
          </nav>
       </<div>
     </header>
+    <div class = "container">
     <%= yield %>
+    </div>
   </body>
 </html>

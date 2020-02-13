@@ -1,7 +1,15 @@
-<div class="container">
+<div class = "row">
 <h2>マイページ</h2>
 <tr><th>氏名</th>
 <td><%= current_user.name %></td></tr>
 <tr><th>メールアドレス</th>
 <td><%= current_user.email %></td></tr>
+<br>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= link_to car.name, car_parts_path(car.id) %></td>
+        <td><%= link_to 'Show', car_path(car.id) %></td>
+      </tr>
+    <% end %>
+
 </div>

@@ -1,6 +1,5 @@
 class CarsController < ApplicationController
   before_action :authenticate_user!
-  #before_action :set_car, only: [:show, :edit, :update, :destroy]
 
   def index
     @cars = current_user.cars.all
@@ -8,9 +7,24 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
-    @partss = Part.all
 	  @part = Part.new
-	  @parts = @car.parts
+    @parts = @car.parts
+
+    require 'date'
+    now = Date.current
+    #点検日
+    v1 = @car.inspection
+    #残り1年点検日数
+    @v1 = (v1 - now).to_i
+    #車検日
+    v2 = @car.car_inspection
+    #残り2年点検日数
+    @v2 = (v2 - now).to_i
+    #登録日経年数
+    d1 = @car.register.strftime("%Y%m%d").to_i
+    d2 = Date.today.strftime("%Y%m%d").to_i
+    @age = (d2 - d1) /10000
+
   end
 
   def new
@@ -25,17 +39,13 @@ class CarsController < ApplicationController
     car = Car.new(car_params)
     car.user_id = current_user.id
     car.save
-    #part = car.parts.new(part_params)
-    #part.car_id = car.id
-    #part.save
-    #Part.create(car_id: car.id, genre: '')
     redirect_to cars_path(car.id)
   end
 
   def update
     car = Car.find(params[:id])
     car.update(car_params)
-    redirect_to cars_path
+    redirect_to car_path
   end
 
   def destroy
@@ -45,11 +55,7 @@ class CarsController < ApplicationController
 end
 
   private
-    def set_car
-      @car = Car.find(params[:id])
-    end
-
     def car_params
-      params.require(:car).permit(:name)
+      params.require(:car).permit(:name, :mileage, :register, :inspection, :car_inspection)
     end
 end
