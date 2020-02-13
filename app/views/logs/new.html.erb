@@ -11,21 +11,12 @@
 
     <tbody>
     <%= form_for [@car, @log] do |f| %>
-    <% @part.each do |part|%>
-    <tr>
-    <td>
-    <%= part.name %>
-    <%= f.check_box :part %>
-    </td></tr>
-    <!--f.hidden_field :part_id -->
-    <% end %>
+    
     <%= f.submit "履歴作成"%>
     <% end %>
     </tbody>
 <table>
+<%= @part.log.id %>
 
 <%= link_to 'Back', root_path %>
 
-<% @part.each do |part|%>
-<%= part.name %>
-<% end %>

@@ -1,9 +1,6 @@
-<h1>交換日修正</h1>
+<h1>交換日記入</h1>
 
-<%= @log.part.name %>
-
-
-<%= form_for [@car, @log]  do |f| %>
+<%= form_for [car, part, log] do |f| %>
 <div>
 <%= "交換日" %>
 <%= f.date_field :exchange %>
@@ -12,3 +9,6 @@
 <%= f.submit "履歴作成" %>
 </div>
 <% end %>
+
+
+<%= link_to 'Back', root_path %>

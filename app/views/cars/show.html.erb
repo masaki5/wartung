@@ -43,18 +43,31 @@
       <thead>
         <tr>
           <th>パーツ名</th>
+          <th></th>
+          <th>最終交換日</th>
+          <th>残りkm</th>
         </tr>
       </thead>
       <tbody>
-          <% @parts.each do |part| %>
-          <tr>
-          <td>
-          <%= link_to part.name, car_part_path(:car_id => @car.id, :id => part.id) %>
-          </td>
-          <td><%= link_to "削除", car_part_path(:car_id => @car.id, :id => part.id), method: :delete%></td>
-          <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
-          </tr>
-          <% end %>
+        <% @parts.each do |part| %>
+        <tr>
+        <td>
+        <%= link_to part.name, car_part_path(:car_id => @car.id, :id => part.id) %>
+        </td>
+        <td><%= link_to "削除", car_part_path(:car_id => @car.id, :id => part.id), method: :delete%></td>
+        <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
+
+        <!-- 両方あったら、表示なかったら非表示 -->
+        <td>
+        <%
+          log = part.logs.last
+          if log && log.exchange
+        %>
+            <%= log.exchange %>
+         <% end %>
+        <td>
+        </tr>
+        <% end %>
       </tbody>
     </table>
   </div>

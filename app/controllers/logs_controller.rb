@@ -4,10 +4,11 @@ class LogsController < ApplicationController
 
   def index
     @car = Car.find(params[:car_id])
-    @logs = Log.where(params[:id])
-    #@parts = Part.find(params[:part_id])
-    @part = @car.parts
+    @logs = Log.where(params[:id]).order(created_at: :desc)
+    @parts = Part.where(params[:part_id])
+    @part = @car.parts.order(created_at: :desc)
     @log = @car.logs
+    #@log = part.logs
   end
 
   def show
@@ -21,11 +22,14 @@ class LogsController < ApplicationController
     @log = Log.new
     @car = Car.find(params[:car_id])
     @part = Part.where(part_id: params[:part_id])
+    #@part = Part.find(params(:id))
     @parts = @car.parts
   end
 
   def edit
     @log = Log.find(params[:id])
+    @car = Car.find(params[:car_id])
+      @part = Part.find(params[:id])
   end
 
 
@@ -53,6 +57,6 @@ class LogsController < ApplicationController
   private
 
     def log_params
-      params.require(:log).permit(:part_id)
+      params.require(:log).permit(:part_id, :exchange)
     end
 end
