@@ -10,15 +10,21 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
 	  @part = Part.new
     @parts = @car.parts
-    #@inspection = Date.parse(@car.inspection)
 
-    ＠cars = @car.register
-    @today = Date.today
-    @last_day = Date.new(@today.year, @today.month, -1)
-    #@carss = Date.parse(@car)
-
-    #@age = (Date.today.strftime(date_format).to_i -@cars.strftime(date_format).to_i) / 10000
-
+    require 'date'
+    now = Date.current
+    year = now.next_year
+    next_year = year - now
+    #da = @car.inspection.to_s.split('-')
+    #上ので日付分解
+    #dead_line = Date(da[0], da[1] ,da[2])
+    date = @car.inspection
+    #dead_line = Date.new(2020, 7 ,6)
+    @remain = (date - now).to_i
+    @w = (@remain + next_year).to_i
+    #@1year = now.next_year
+    #dead_line = Date.new(2018, 7 ,6)vag
+    #@remain = (@in - today).to_i
   end
 
   def new

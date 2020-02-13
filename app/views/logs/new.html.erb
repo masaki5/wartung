@@ -15,7 +15,7 @@
     <tr>
     <td>
     <%= part.name %>
-    <%= f.check_box :parts %>
+    <%= f.check_box :part %>
     </td></tr>
     <!--f.hidden_field :part_id -->
     <% end %>
@@ -25,3 +25,7 @@
 <table>
 
 <%= link_to 'Back', root_path %>
+
+<% @part.each do |part|%>
+<%= part.name %>
+<% end %>

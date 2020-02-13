@@ -11,7 +11,7 @@ class PartsController < ApplicationController
       #@logs = @log.parts
       #@parts = car.part car.log
       #@part = @cars.parts
-      @logs = @part.log
+      @logs = @part.logs
     end
 
     def edit
