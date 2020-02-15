@@ -35,6 +35,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
+
   resources :cars do
     resources :parts do
       resources :logs , :controller => "parts/logs"

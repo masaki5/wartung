@@ -7,8 +7,7 @@
 <br>
     <% @cars.each do |car| %>
       <tr>
-        <td><%= link_to car.name, car_parts_path(car.id) %></td>
-        <td><%= link_to 'Show', car_path(car.id) %></td>
+        <td><%= link_to car.name, car_path(car.id) %></td>
       </tr>
     <% end %>
 

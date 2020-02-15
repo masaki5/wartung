@@ -4,9 +4,29 @@ class Admin::CarsController < ApplicationController
   def index
     #userのcar探す
     @car = Car.where(user_id: params[:user_id])
+    @user = User.find(params[:user_id])
   end
 
   def show
+    @car = Car.find(params[:id])
+    @user = User.where(user_id: params[:user_id])
+    @part = Part.new
+    @parts = @car.parts
+
+    require 'date'
+    now = Date.current
+    #点検日
+    v1 = @car.inspection
+    #残り1年点検日数
+    @v1 = (v1 - now).to_i
+    #車検日
+    v2 = @car.car_inspection
+    #残り2年点検日数
+    @v2 = (v2 - now).to_i
+    #登録日経年数
+    d1 = @car.register.strftime("%Y%m%d").to_i
+    d2 = Date.today.strftime("%Y%m%d").to_i
+    @age = (d2 - d1) /10000
   end
 
   def new

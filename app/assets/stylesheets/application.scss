@@ -10,13 +10,31 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
-@import "bootstrap-sprockets";  /*ここを追加*/
-@import "bootstrap";            /*ここを追加*/
+@import "bootstrap";
 
-#body {
-		margin-top: 60px;
+body {
+		margin-top: 100px;
+		background-color: wheat;
 }
+
+.box1{
+	/*background-image: url("pyr.jpg");*/
+	background-color: white;
+}
+
+.box2{
+	background-color: black;
+}
+
+.box3{
+	background-color: slategray;
+}
+
+  .listings_header {
+	margin: 0 1rem 0.1rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	color: #ab9ba9;
+  }

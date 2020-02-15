@@ -1,9 +1,61 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @car.name %>
-</p>
 
-<%= link_to 'Edit', edit_car_path(@car) %> |
-<%= link_to 'Back', cars_path %>
+<div class="col-sm-4">
+  <h3><ul>
+    <strong>会員名</strong>
+    <%= @car.user.name %>
+    <h3>車両情報</h3>
+    <li><strong>車両名</strong>
+    <%= @car.name %></li>
+    <li><strong>走行距離</strong>
+    <%= number_to_currency(@car.mileage) %></li>
+    <li><strong>車両経年数</strong>
+    <%= @age %>年</li>
+    <li><strong>点検日</strong>
+    <%= @car.inspection %></li>
+    <li><strong>車検日</strong>
+    <%= @car.car_inspection %></li>
+    <li><strong>車両登録日</strong>
+    <%= @car.register %></li>
+  </h3></ul>
+  <div>
+    <p>1年点検まで残り<%= @v1 %>日</p></div>
+  <div><br>
+    <p>2年点検まで残り<%= @v2 %>日</p></div>
+    </div>
+
+<div class="col-sm-4">
+    <table>
+      <thead>
+        <tr>
+          <th>パーツ名</th>
+          <th></th>
+          <th>最終交換日</th>
+          <th>残りkm</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @parts.each do |part| %>
+        <tr>
+        <td>
+        <%= link_to part.name, admin_user_car_part_path(:car_id => @car.id, :id => part.id) %>
+        </td>
+        <td><%= link_to "削除", admin_user_car_part_path(:car_id => @car.id, :id => part.id), method: :delete%></td>
+        <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
+
+        <!-- 両方あったら、表示なかったら非表示 -->
+        <td>
+        <%
+          log = part.logs.last
+          if log && log.exchange
+        %>
+            <%= log.exchange %>
+         <% end %>
+        <td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
