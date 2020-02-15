@@ -6,10 +6,20 @@ class Admin::UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @car = @user.cars
+        @cars = Car.find(params[:id])
     end
 
     def edit
         @user = User.find(params[:id])
+    end
+
+def search
+    if params[:name].present?
+        @users = User.where('name LIKE ?', "%#{params[:name]}%")
+    else
+        @users = User.all
+    end
     end
 
     private

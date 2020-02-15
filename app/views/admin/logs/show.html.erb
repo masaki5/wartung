@@ -1,4 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_log_path(@log) %> |
-<%= link_to 'Back', logs_path %>
+<%= @log.id %><br>
+    <p>交換日</p>
+    <%= @log.created_at.strftime("%Y年%-m月%-d日") %>
+    <table>
+      <thead>
+      <tr>
+      <th colspan="3">交換部品</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+      <td><%= @log.part.name %></td>
+      </tr>
+      </tbody>
+    </table>
+
+    <%= link_to 'Edit', edit_car_log_path(@car, @log) %> |
+      <%= link_to '履歴一覧へ', car_logs_path(@car, @log) %>

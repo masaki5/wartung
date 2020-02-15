@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :users do
+      get :search, on: :collection
       resources :cars do
         resources :parts
         resources :logs

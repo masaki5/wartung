@@ -6,5 +6,14 @@
 </p>
 
 <%= link_to "car", admin_user_cars_path(@user) %>
-<%= link_to 'Edit', edit_admin_user_path(@user) %> |
-<%= link_to 'Back', admin_users_path %>
+
+<% @car.each do |car| %>
+<td><%= link_to car.name, admin_user_car_path(car) %></td>
+<td><%= link_to 'Edit', edit_admin_user_car_path(car) %></td>
+ <td><%= link_to 'Destroy', car, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>
+
+<%= link_to '会員一覧', admin_users_path %>
+<%= link_to '会員情報変更', edit_admin_user_path(@user) %>
+
+<%= link_to 'New Car', new_car_path %>

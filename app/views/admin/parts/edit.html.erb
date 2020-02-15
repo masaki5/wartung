@@ -1,6 +1,6 @@
 <h1>部品編集</h1>
 
-<%= form_for [:admin, @part] do |f| %>
+<%= form_for [@car, @part] do |f| %>
 
 <div class="field">
     <%= f.label :name %>
@@ -16,5 +16,5 @@
     <%= f.submit %>
   </div>
 <% end %>
-<%= link_to 'Show', admin_part_path %> |
-<%= link_to 'Back', admin_parts_path %>
+<%= link_to 'Show', admin_user_car_part_path(@car, @part) %> |
+<%= link_to 'Back', admin_user_car_part_path(@car, @part) %>

@@ -10,8 +10,26 @@
   <%= @part.introduction %>
 </p>
 
-<%= link_to 'Edit', edit_admin_part_path(@part) %> |
-<%= link_to 'Back', admin_parts_path %>
+<%= link_to 'パーツ編集', edit_admin_user_car_part_path(@part) %>
 
 </table>
 
+<table>
+  <thead>
+    <tr>
+      <th>交換日</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @logs.each do |log| %>
+  <tr>
+  <td><%= log.exchange %></td>
+  <td><%= log.part.name %></td>
+  <td><%= link_to '削除', car_log_path(@car, log), method: :delete %></td>
+  <% end %>
+  </tbody>
+</table>
+
+<%= render partial: 'parts/logs/new', locals: { car: @car, part: @part, log:@log} %>
+
+<%= link_to '車詳細', admin_user_car_path(@user, @car) %>

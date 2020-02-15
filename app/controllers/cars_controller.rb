@@ -7,6 +7,7 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+    #@user = User.find(params[:user_id])
     #@partss = Part.find(params[:id])
     #したのは全パーツ持ってくる
     #@partss = Part.where(params[:id])

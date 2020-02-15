@@ -1,6 +1,36 @@
 <h1>Editing Car</h1>
 
-<%= render 'form', car: @car %>
+<%= form_for(@car) do |f| %>
+	<div>
+		<%= "車両名" %>
+		<%= f.text_field :name %>
+	</div>
+	<div>
+		<%= "走行距離" %>
+		<%= f.text_field :mileage %><p>km</p>
+	</div>
 
-<%= link_to 'Show', @car %> |
+	<div>
+		<%= "点検日" %>
+		<%= f.date_field :inspection %>
+	</div>
+
+	<div>
+		<%= "車検日" %>
+		<%= f.date_field :car_inspection %>
+	</div>
+
+	<div>
+		<%= "車両登録日" %>
+		<%= f.date_field :register %>
+	</div>
+
+
+	<div class="actions row">
+		<%= f.submit "車両情報変更" %>
+	</div>
+  <% end %>
+
+<%= link_to 'Show', admin_user_car_path(@car) %> |
 <%= link_to 'Back', cars_path %>
+

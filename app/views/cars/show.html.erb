@@ -1,4 +1,3 @@
-<div class = "box">
 <div class="row">
 
   <p id="notice"><%= notice %></p>
@@ -76,11 +75,9 @@
   <div class="col-sm-4">
   <%= render partial: 'parts/new', locals: { car: @car, part: @part} %>
   <br>
-  <%= link_to '履歴作成', new_car_log_path(@car) %>
   <%= link_to "履歴確認", car_logs_path(@car) %>
   <br>
   <%= link_to '車両情報編集', edit_car_path(@car) %> |
   <%= link_to '戻る', cars_path %>
   </div>
-</div>
 </div>

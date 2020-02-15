@@ -3,26 +3,34 @@ class Admin::PartsController < ApplicationController
 
   def index
     @parts = Part.all
+    @part = Part.where(params[:id])
   end
 
 
   def show
+    @user = User.find(params[:user_id])
+    @car = Car.find(params[:car_id])
     @part = Part.find(params[:id])
+    @log = Log.new
+    @logs = @part.logs
   end
 
   def new
-    @part = Part.new
   end
 
   def edit
+    @car = Car.find(params[:car_id])
     @part = Part.find(params[:id])
   end
 
 
   def create
-    part = Part.new(part_params)
-    part.save
-    redirect_to admin_parts_path(part.id)
+      car = Car.find(params[:car_id])
+      part = car.parts.new(part_params)
+      part.car_id = car.id
+      part.save
+      @parts = car.parts
+      redirect_to request.referrer
   end
 
 
@@ -36,12 +44,12 @@ class Admin::PartsController < ApplicationController
   def destroy
     @part = Part.find(params[:id])
     @part.destroy
-    redirect_to admin_parts_path, notice: "successfully delete book!"
+    redirect_to request.referrer, notice: "successfully delete book!"
   end
 
   private
 
     def part_params
-      params.require(:part).permit(:name, :introduction)
+      params.require(:part).permit(:name, :introduction, :car_id)
     end
 end
