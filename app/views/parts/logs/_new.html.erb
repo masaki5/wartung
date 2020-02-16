@@ -6,6 +6,14 @@
 <%= f.date_field :exchange %>
 </div>
 <div>
+<%= "交換推奨日" %>
+<%= f.date_field :next %>
+</div>
+<div>
+<%= "交換距離" %>
+<%= f.text_field :after %>km
+</div>
+<div>
 <%= f.submit "履歴作成" %>
 </div>
 <% end %>

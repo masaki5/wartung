@@ -8,11 +8,13 @@ class CarsController < ApplicationController
   def show
     @car = Car.find(params[:id])
     #@user = User.find(params[:user_id])
-    #@partss = Part.find(params[:id])
+    @partss = Part.find(params[:id])
     #したのは全パーツ持ってくる
     #@partss = Part.where(params[:id])
 	  @part = Part.new
-    @parts = @car.parts
+    @parts = @car.parts.page(params[:page]).per(5r)
+    #@log = Log.where(params[:log_id])
+
 
     require 'date'
     now = Date.current
@@ -24,11 +26,19 @@ class CarsController < ApplicationController
     v2 = @car.car_inspection
     #残り2年点検日数
     @v2 = (v2 - now).to_i
-    #登録日経年数
+    #登録日経年数計算
     d1 = @car.register.strftime("%Y%m%d").to_i
     d2 = Date.today.strftime("%Y%m%d").to_i
     @age = (d2 - d1) /10000
 
+
+    #交換推奨部計算
+    #now = Date.current
+    # log = @partss.logs.last
+    # if !log.next.nil?
+    #   v3 = log.next
+    #   @b = (v3 - now).to_i
+    # end
   end
 
   def new
@@ -56,7 +66,7 @@ class CarsController < ApplicationController
     car = Car.find(params[:id])
     car.destroy
     redirect_to cars_path
-end
+  end
 
   private
     def car_params

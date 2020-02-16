@@ -1,2 +1,50 @@
-<h1>Homes#about</h1>
-<p>Find me in app/views/homes/about.html.erb</p>
+
+		<aside id="colorlib-aside" role="complementary" class="js-fullheight">
+			<nav id="colorlib-main-menu" role="navigation">
+				<ul>
+					<li><a>Home</a></li>
+					<li><a>Fashion</a></li>
+					<li><a>Travel</a></li>
+					<li><a>About</a></li>
+					<li><a>Contact</a></li>
+				</ul>
+			</nav>
+
+			<div class="colorlib-footer">
+				<p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+	  Copyright &copy;<script>document.write(new Date().getFullYear());</script><i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+	  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+			</div>
+		</aside>
+
+<nav class="nav navbar-nav navbar-left" style="color: #fff">
+        </nav>
+         <nav>
+          <ul class="nav navbar-nav navbar-right">
+
+              <% if admin_signed_in? %>
+                  <li><%= link_to "会員一覧", admin_users_path, :style=>"color:blue;" %></li>
+                  <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></button>
+                  <p class="navbar-text" style="color:red;">管理ログイン中</p>
+              <% elsif user_signed_in? %>
+                  <li><%= link_to "Home", root_path, :style=>"color:blue;" %></li>
+                  <li><%= link_to "about", homes_about_path, :style=>"color:blue;" %></li>
+                  <li><%= link_to "マイページ", user_path(current_user), :style=>"color:blue;" %></li>
+                  <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
+                  <p class="navbar-text" style="color: blue">ログイン中</p>
+              <% else %>
+                  <li><%= link_to "Home", root_path, :style=>"color:red;" %></li>
+                  <li><%= link_to "About", homes_about_path, :style=>"color:red;" %></li>
+                  <li><%= link_to "新規登録", new_user_registration_path, :style=>"color:blue;" %></li>
+                  <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログイン", new_user_session_path %></button>
+                  <li><p class="navbar-text" style="color:blue;">未ログイン</p></li>
+              <% end %>
+
+          </ul>
+         </nav>
+
+
+
+  <div class="listings_channels">
+    <h2 class="listings_header">admin</h2>
+</div>

@@ -50,6 +50,6 @@ class Admin::LogsController < ApplicationController
   private
 
   def log_params
-    params.require(:log).permit(:part_id, :exchange)
+    params.require(:log).permit(:part_id, :exchange, :next, :after)
   end
 end

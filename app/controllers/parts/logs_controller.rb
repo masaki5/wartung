@@ -28,12 +28,15 @@ class Parts::LogsController < ApplicationController
   def create
      part = Part.find(params[:part_id])
      car = Car.find(params[:car_id])
-     log = car.logs.new(log_params)
+     log = car.logs.build(log_params)
      log.part_id = part.id
+     log.distance = car.mileage
      log.save
      @logs = car.logs
      redirect_to request.referrer
   end
+
+
 
   def destroy
   end
@@ -41,6 +44,6 @@ class Parts::LogsController < ApplicationController
   private
 
     def log_params
-      params.require(:log).permit(:part_id, :exchange)
+      params.require(:log).permit(:part_id, :exchange, :next, :after, :distance)
     end
   end
