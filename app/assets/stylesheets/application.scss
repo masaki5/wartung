@@ -15,28 +15,45 @@
 @import "bootstrap";
 
 body {
-		margin-top: 10px;
-		background-color: tomato;
-		font-family: "Poppins", Arial, sans-serif;
+	margin-top: 0px;
+	padding: 0px;
+	background-color: whitesmoke;
+	font-family: "Poppins", Arial, sans-serif;
 }
 
-.box1{
+.box1 {
 	/*background-image: url("pyr.jpg");*/
-	background-color: white;
+	background-color: whitesmoke;
+	height: 98vh;
 }
 
-.box2{
+.box2 {
 	background-color: black;
+	height: 5vh;
 }
 
-.box3{
+.box3 {
 	background-color: slategray;
+	position: fixed;
+	height: 98vh;
+	width: 30vh;
 }
 
-  .listings_header {
+.listings_header {
 	margin: 0 1rem 0.1rem;
 	text-transform: uppercase;
 	font-weight: 700;
 	color: #ab9ba9;
-  }
+}
 
+.nav navbar-nav navbar-left {
+	padding: 10px;
+}
+
+.conteiner {
+	margin-right: 10px;
+}
+
+.top {
+	margin-left: 70px;
+}

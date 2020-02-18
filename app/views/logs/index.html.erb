@@ -10,30 +10,19 @@
   </thead>
 
   <tbody>
-    <% @log.each do |log| %>
-      <tr>
-      <td><%= log.id %></td>
-      <td><%= link_to log.created_at.strftime("%Y年%-m月%-d日 %-H時%-M分"), car_log_path(@car, log) %></td>
-        <td><%= link_to 'Edit', edit_car_log_path(@car, log) %></td>
-        <td><%= link_to 'Destroy', car_log_path(@car, log), method: :delete %></td>
-      </tr>
-    <% end %>
-    <% @part.each do |part| %>
-      <tr>
-      <td><%= part.id %></td>
-      <td><%= part.name %></td>
-      <td><%=  %></td></tr>
+    <% @logs.each do |log| %>
+    <tr>
+      <% if log.exchange %>
+      <td><%= link_to log.exchange, car_part_log_path(@car, @part, log) %></td>
+      <% else %>
+      <td><%= link_to "履歴詳細", car_log_path(@car, @part, log) %></td>
       <% end %>
-      <% @logs.each do |log| %>
-      <tr>
-      <td><%= log.id %></td>
-      <td><%= link_to log.exchange, car_log_path(@car, log) %></td>
+
       <td><%= log.part.name %></td>
-      <td><%= link_to 'Edit', edit_car_log_path(@car, log) %></td>
-      <td><%= link_to 'Destroy', car_log_path(@car, log), method: :delete %></td>
-      <td><%=  %></td></tr>
-      <% end %>
+      <td><%= link_to 'Edit', edit_car_part_log_path(@car, @part, log) %></td>
+      <td><%= link_to 'Destroy', car_part_log_path(@car, @part, log), method: :delete %></td>
+      <td><%=  %></td>
+    </tr>
+    <% end %>
   </tbody>
 </table>
-
-<br>

@@ -1,19 +1,18 @@
-<h1>Editing Part</h1>
+<div class="low">
+    <div class="center">
+        <div class="col-sm-6">
+            <h1>パーツ内容編集</h1>
 
-<%= form_for [@car, @part] do |f| %>
-<div class="field row">
-    <%= f.label "部品名" %>
-    <%= f.text_field :name %>
-</div>
-<div class="field row">
-    <%= f.label "商品説明" %>
-    <%= f.text_area :introduction %>
-</div>
+            <%= form_for [@car, @part] do |f| %>
+            <%= f.label "部品名" %>
+            <%= f.text_field :name %><br>
+            <%= f.label "商品説明" %>
+            <%= f.text_area :introduction %><br>
+            <%= f.submit "履歴作成" %>
+            <% end %>
 
-<div class="actions row">
-    <%= f.submit "履歴作成" %>
+            <%= link_to '車詳細', car_path(@car) %> |
+            <%= link_to '戻る', car_path(@car) %>
+        </div>
+    </div>
 </div>
-<% end %>
-
-<%= link_to 'Show', car_path(@car) %> |
-<%= link_to 'Back', car_path(@car) %>

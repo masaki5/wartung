@@ -17,12 +17,19 @@ class PartsController < ApplicationController
     end
 
     def create
-      car = Car.find(params[:car_id])
-      part = car.parts.new(part_params)
-      part.car_id = car.id
-      part.save
+      @car = Car.find(params[:car_id])
+      @part = @car.parts.new(part_params)
+      @part.car_id = @car.id
+
+
+      @parts = @car.parts.page(params[:page]).per(6)
+      #@log = Log.where(params[:log_id])
+      if @part.save
       @parts = car.parts
       redirect_to request.referrer
+      else
+        render "cars/show"
+      end
     end
 
     def update

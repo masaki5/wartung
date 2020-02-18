@@ -1,6 +1,8 @@
-<h1>新規車両登録</h1>
+<div class=low">
+	<div class="col-sm-12">
+		<h1>新規車両登録</h1>
 
-	<%= form_for(@car) do |f| %>
+		<%= form_for(@car) do |f| %>
 		<div>
 			<%= "車両名" %>
 			<%= f.text_field :name %>
@@ -28,6 +30,8 @@
 		<div class="actions row">
 			<%= f.submit "車両登録" %>
 		</div>
-	<% end %>
+		<% end %>
 
-<%= link_to 'Back', cars_path %>
+		<%= link_to 'Back', cars_path %>
+	</div>
+</div>

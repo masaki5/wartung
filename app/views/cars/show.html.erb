@@ -1,85 +1,160 @@
 <div class="row">
-
-  <p id="notice"><%= notice %></p>
-
-  <div class="col-sm-4">
-  <h3><ul>
-    <strong>会員名</strong>
-    <%= @car.user.name %>
-    <h3>車両情報</h3>
-    <li><strong>車両名</strong>
-    <%= @car.name %></li>
-    <li><strong>走行距離</strong>
-    <%= number_to_currency(@car.mileage) %></li>
-
-    <%= form_for(@car) do |f| %>
-      <div>
-      <strong>走行距離</strong>
-        <%= f.text_field :mileage, :size=> "6" %>km
-      </div>
-
-      <div class="actions row">
-        <%= f.submit "走行距離変更" %>
-      </div>
-    <% end %>
-    <li><strong>車両経年数</strong>
-    <%= @age %>年</li>
-    <li><strong>点検日</strong>
-    <%= @car.inspection %></li>
-    <li><strong>車検日</strong>
-    <%= @car.car_inspection %></li>
-    <li><strong>車両登録日</strong>
-    <%= @car.register %></li>
-  </h3></ul>
-  <div>
-    <p>1年点検まで残り<%= @v1 %>日</p></div>
-  <div><br>
-    <p>2年点検まで残り<%= @v2 %>日</p></div>
-    </div>
-
   <div class="col-sm-6">
-    <table>
-      <thead>
+    <strong>
+      <h1>車両情報</h1>
+    </strong>
+  </div>
+  <div class="col-sm-6">
+    <p id="notice"><%= notice %></p>
+    <% if @part.errors.any? %>
+    <div id="error_explanation">
+      <h5><%= @part.errors.count %>件のerrorが発生しました。</h5>
+      <ul>
+        <% @part.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+  </div>
+  <div class="col-sm-12">
+
+
+
+    <table class="table table-hover table-inverse table-bordered ">
+
+      <thead class="thead-light">
+        <th>
+          <strong>会員名</strong>
+        </th>
+        <th>
+          <strong>車両名</strong>
+        </th>
+        <th>
+          <strong>走行距離</strong> <%= number_to_currency(@car.mileage) %>
+        </th>
+        <th>車両経年数</th>
+        <th>
+          <strong>点検日</strong>
+        </th>
+        <th>
+          <strong>車検日</strong>
+        </th>
+        <th>
+          <strong>車両登録日</strong>
+        </th>
+        <th></th>
+      </thead>
+
+      <tbody>
+        <td><%= @car.user.name %></td>
+        <td><%= @car.name %></td>
+        <td>
+          <%= form_for(@car) do |f| %>
+          <%= f.text_field :mileage, :size=> "6" %>km
+
+          <%= f.submit "走行距離変更" %>
+          <% end %>
+        </td>
+        <!--登録日経年数計算-->
+        <!---->
+        <% d1 = @car.register.strftime("%Y%m%d").to_i %>
+        <% d2 = Date.today.strftime("%Y%m%d").to_i %>
+        <% @age = (d2 - d1) /10000 %>
+        <td><%= @age %>年</td>
+        <td><%= @car.inspection %></td>
+        <td><%= @car.car_inspection %></td>
+        <td><%= @car.register %></td>
+        <td><%= link_to '車両情報編集', edit_car_path(@car) %></td>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="col-sm-12">
+    <div class="text-center">
+      <h2><strong>定期点検</strong></h2>
+
+      <% now = Date.current %>
+      <% v1 = @car.inspection %>
+      <% @v1 = (v1 - now).to_i %>
+      <% if @v1 > 0 %>
+      <p>1年点検まで残り<%= @v1 %>日</p>
+      <% else %>
+      <p>1年点検まで残り0日 点検時期です</p>
+      <% end %>
+
+      <% v2 = @car.car_inspection %>
+      <% @v2 = (v2 - now).to_i %>
+      <% if @v2 > 0 %>
+      <p>車検まで残り<%= @v2 %>日</p>
+      <% else %>
+      <p>車検まで残り0日 点検時期です</p>
+      <% end %>
+
+    </div>
+  </div>
+  <div class="col-sm-10">
+    <table class="table table-hover table-inverse table-bordered ">
+      <thead class="thead-light">
         <tr>
           <th>パーツ名</th>
           <th></th>
           <th>最終交換日</th>
-          <th></th>
-          <th>交換推奨日 残り日数</th>
-          <th></th>
+          <th>交換推奨日</th>
+          <th>残り日数</th>
           <th>残りkm</th>
         </tr>
       </thead>
       <tbody>
         <% @parts.each do |part| %>
         <tr>
-        <td>
-        <%= link_to part.name, car_part_path(:car_id => @car.id, :id => part.id) %>
-        </td>
-        <td><%= link_to "削除", car_part_path(:car_id => @car.id, :id => part.id), method: :delete%></td>
-        <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
-        <% log = part.logs.last %>
-        <!-- 両方あったら、表示なかったら非表示 -->
-        <td><%if log && log.exchange%>
-          <%= log.exchange %>
-        <% end %><td>
+          <td>
+            <%= link_to part.name, car_part_path(:car_id => @car.id, :id => part.id) %>
+          </td>
+          <td><%= link_to "削除", car_part_path(:car_id => @car.id, :id => part.id), method: :delete%></td>
+          <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
+          <% log = part.logs.last %>
+          <!-- 両方あったら、表示なかったら非表示 -->
+          <td>
+            <%if log && log.exchange%>
+            <%= log.exchange %>
+            <% end %>
+          </td>
 
-        <td><%if log && log.next%>
-          <%= log.next %>
-          <% c = log.next %>
-          <% now = Date.current %>
-          残り<%= (c - now).to_i %>日
-        <% end %><td>
+          <td>
+            <%if log && log.next%>
+            <%= log.next %>
+            <% end %>
+          </td>
 
-        <td><%if log && log.distance && log.after%>
-          <% log.distance %>
-          <% m = log.after %>
-          <% z = log.distance %>
-          <% q = @car.mileage %>
-          <% w = (q - z) %>
-          残り<%= g = (m - w) %>km
-        <% end %><td>
+          <td>
+            <%if log && log.next%>
+            <% c = log.next %>
+            <% now = Date.current %>
+            <% y  = (c - now).to_i %>
+            <% if y > 0 %>
+            残り<%= y %>日
+            <% else %>
+            交換時期です
+            <% end %>
+            <% end %>
+          </td>
 
+          <td>
+            <%if log && log.distance && log.after%>
+            <% log.distance %>
+            <% m = log.after %>
+            <% z = log.distance %>
+            <% q = @car.mileage %>
+            <% w = (q - z) %>
+            <% g = (m - w) %>
+            <% if g > 0 %>
+            残り<%= g %>km
+            <% else %>
+            交換時期です
+            <% end %>
+            <% end %>
+          </td>
         </tr>
         <% end %>
       </tbody>
@@ -88,11 +163,10 @@
   </div>
 
   <div class="col-sm-2">
-  <%= render partial: 'parts/new', locals: { car: @car, part: @part} %>
-  <br>
-  <%= link_to "履歴確認", car_logs_path(@car) %>
-  <br>
-  <%= link_to '車両情報編集', edit_car_path(@car) %> |
-  <%= link_to '戻る', cars_path %>
+    <%= render partial: 'parts/new', locals: { car: @car, part: @part} %>
+    <br>
+    <%= link_to "履歴確認", car_part_logs_path(@car, @parts) %>
+    <br>
+    <%= link_to '戻る', cars_path %>
   </div>
 </div>

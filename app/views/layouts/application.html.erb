@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html>
 
-  <head>
-    <title>Wartung</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Wartung</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
+<body>
 
-    <header>
-      <div class = "box2">
+  <header>
+    <div class="box2">
       <% if admin_signed_in? %>
       <nav class="nav navbar-nav navbar-left" style="color: #fff">
-        <h3><%= link_to "wartung", admin_users_path, :style=>"color:blue;" %></h3>
+        <h3 class="top"><%= link_to "wartung", admin_users_path, :style=>"color:blue;" %></h3>
       </nav>
       <% elsif user_signed_in? %>
       <nav class="nav navbar-nav navbar-left" style="color: #fff">
-        <h3><%= link_to "wartung", root_path, :style=>"color:blue;" %></h3>
+        <h3 class="top"><%= link_to "wartung", root_path, :style=>"color:blue;" %></h3>
       </nav>
       <% else %>
       <nav class="nav navbar-nav navbar-left" style="color: #fff">
         <h3><%= link_to "wartung", root_path, :style=>"color:blue;" %></h3>
       </nav>
       <% end %>
-      </div>
-    </header>
+    </div>
+  </header>
 
-
-    <div class = "box1">
+  <div class="conteiner">
+    <div class="box1">
       <div class="row">
         <div class="col-2">
-          <div class = "box3">
+          <div class="box3">
             <%= render'layouts/sidebar' %>
           </div>
         </div>
@@ -43,5 +43,7 @@
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>

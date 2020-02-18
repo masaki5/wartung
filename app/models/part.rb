@@ -8,15 +8,14 @@ class Part < ApplicationRecord
 
     validates :name, presence: true
     validates :name, uniqueness: { scope: :car_id }
-    validates :introduction, presence: true
     #part createした際にlogも一緒に作成
-    after_update :create_log
+    #after_update :create_log
 
-    def create_log
-        log = Log.new
-        log.part_id = id
-        log.save
-    end
+    # def create_log
+    #     log = Log.new
+    #     log.part_id = id
+    #     log.save
+    # end
 
     #def create_log
         #log = Log.new

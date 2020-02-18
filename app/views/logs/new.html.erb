@@ -4,19 +4,18 @@
 
 <table>
     <thead>
-    <tr>
-        <th>パーツ名</th>
-    </tr>
+        <tr>
+            <th>パーツ名</th>
+        </tr>
     </thead>
 
     <tbody>
-    <%= form_for [@car, @log] do |f| %>
-    
-    <%= f.submit "履歴作成"%>
-    <% end %>
+        <%= form_for [@car, @log] do |f| %>
+
+        <%= f.submit "履歴作成"%>
+        <% end %>
     </tbody>
-<table>
-<%= @part.log.id %>
+    <table>
+        <%= @part.log.id %>
 
-<%= link_to 'Back', root_path %>
-
+        <%= link_to 'Back', root_path %>ß

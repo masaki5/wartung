@@ -1,6 +1,4 @@
-<nav class="nav navbar-nav navbar-left" style="color: #fff">
-        <h2 class="listings_header">admin</h2>
-        </nav>
+
          <nav>
           <ul class="nav navbar-nav navbar-right">
 
@@ -9,11 +7,12 @@
                   <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></button>
                   <p class="navbar-text" style="color:red;">管理ログイン中</p>
               <% elsif user_signed_in? %>
-                  <li><%= link_to "Home", root_path, :style=>"color:blue;" %></li>
-                  <li><%= link_to "about", homes_about_path, :style=>"color:blue;" %></li>
-                  <li><%= link_to "マイページ", user_path(current_user), :style=>"color:blue;" %></li>
+                 <button type="button" class="btn btn-outline-primary"><%= link_to "Home", root_path, :style=>"color:white;" %></button>
+                 <button type="button" class="btn btn-outline-primary"><%= link_to "about", homes_about_path, :style=>"color:white;" %></button>
+                  <button type="button" class="btn btn-outline-primary"><%= link_to "マイページ", user_path(current_user), :style=>"color:white;" %></button>
                   <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
-                  <p class="navbar-text" style="color: blue">ログイン中</p>
+                   <button type="button" class="btn btn-outline-primary">ログイン中</button>
+                   <button type="button" class="btn btn-outline-primary"><%= link_to "車両一覧",cars_path, :style=>"color:white;" %></button>
               <% else %>
                   <li><%= link_to "Home", root_path, :style=>"color:red;" %></li>
                   <li><%= link_to "About", homes_about_path, :style=>"color:red;" %></li>
@@ -24,9 +23,3 @@
 
           </ul>
          </nav>
-
-
-
-  <div class="listings_channels">
-    <h2 class="listings_header">admin</h2>
-</div>
