@@ -1,0 +1,27 @@
+<h1>交換日修正</h1>
+
+<%= @log.part.name %>
+
+
+<%= form_for [@car, @log]  do |f| %>
+<div>
+    <%= "交換日" %>
+    <%= f.date_field :exchange %>
+</div>
+
+<div>
+    <%= "交換推奨日" %>
+    <%= f.date_field :next %>
+</div>
+
+<div>
+    <%= "交換距離" %>
+    <%= f.text_field :after %>km
+</div>
+
+<div>
+    <%= f.submit "履歴修正" %>
+</div>
+<% end %>
+
+<%= link_to '履歴詳細', car_part_log_path(@car, @log) %>

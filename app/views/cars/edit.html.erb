@@ -1,39 +1,40 @@
-<div class="low">
-	<div class="col-sm-6">
-		<h1>車情報編集</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-4">
+			<h1>車情報編集</h1>
 
-		<%= form_for(@car) do |f| %>
-		<div>
-			<%= "車両名" %>
-			<%= f.text_field :name %>
+			<%= form_for(@car) do |f| %>
+			<div>
+				<%= "車両名" %>
+				<%= f.text_field :name, class: 'form-control' %>
+			</div>
+			<div>
+				<%= "走行距離" %>
+				<%= f.text_field :mileage, class: 'form-control' %>
+			</div>
+
+			<div>
+				<%= "点検日" %>
+				<%= f.date_field :inspection, class: 'form-control' %>
+			</div>
+
+			<div>
+				<%= "車検日" %>
+				<%= f.date_field :car_inspection, class: 'form-control' %>
+			</div>
+
+			<div>
+				<%= "車両登録日" %>
+				<%= f.date_field :register, class: 'form-control' %>
+			</div>
+
+			<div>
+				<%= f.submit "車両情報変更", class: "btn btn-primary"%>
+			</div>
+			<% end %><br>
+			<button type="button" class="btn btn-primary btn-md">
+				<%= link_to "車詳細", car_path(@car), :style=>"color:white;" %></button>
+			<button type="button" class="btn btn-primary btn-md">
+				<%= link_to "戻る", :back, :style=>"color:white;" %></button>
 		</div>
-		<div>
-			<%= "走行距離" %>
-			<%= f.text_field :mileage %><p>km</p>
-		</div>
-
-		<div>
-			<%= "点検日" %>
-			<%= f.date_field :inspection %>
-		</div>
-
-		<div>
-			<%= "車検日" %>
-			<%= f.date_field :car_inspection %>
-		</div>
-
-		<div>
-			<%= "車両登録日" %>
-			<%= f.date_field :register %>
-		</div>
-
-
-		<div class="actions row">
-			<%= f.submit "車両情報変更" %>
-		</div>
-		<% end %>
-
-		<%= link_to 'Show', @car %> |
-		<%= link_to 'Back', cars_path %>
 	</div>
-</div>

@@ -3,12 +3,12 @@ class Parts::LogsController < ApplicationController
 
 
   def index
-    @car = Car.find(params[:car_id])
-    @logs = Log.where(params[:id]).order(created_at: :desc)
-    @parts = Part.where(params[:part_id])
-    @part = @car.parts.order(created_at: :desc)
-    @log = @car.logs
-    #@logs = @car.logs
+    #   @car = Car.find(params[:car_id])
+    # @logs = Log.where(params[:id]).order(created_at: :desc)
+    # @parts = Part.where(params[:part_id])
+    # #@partss = Part.find(params[:part_id])
+    # @log = @car.logs
+    # @part = @car.parts
   end
 
   def show
@@ -28,9 +28,9 @@ class Parts::LogsController < ApplicationController
   end
 
   def edit
-    @log = Log.find(params[:id])
+     @log = Log.find(params[:id])
      @car = Car.find(params[:car_id])
-      @part = Part.find(params[:id])
+    #  @part = Part.find(params[:part_id])
   end
 
 
@@ -45,12 +45,20 @@ class Parts::LogsController < ApplicationController
      redirect_to request.referrer
   end
 
+  def update
+     part = Part.find(params[:part_id])
+     car = Car.find(params[:car_id])
+     log = Log.find(params[:id])
+     log.update(log_params)
+     redirect_to cars_logs_path
+  end
+
 
 
   def destroy
-       log = Log.find(params[:id])
-    log.destroy
-    redirect_to request.referrer
+      log = Log.find(params[:id])
+      log.destroy
+      redirect_to request.referrer
   end
 
   private

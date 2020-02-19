@@ -1,0 +1,19 @@
+<h1>履歴内容記入</h1>
+
+<%= form_for [car, part, log] do |f| %>
+<div>
+    <%= "交換日" %>
+    <%= f.date_field :exchange, class: 'form-control' %>
+</div>
+<div>
+    <%= "交換推奨日" %>
+    <%= f.date_field :next, class: 'form-control' %>
+</div>
+<div>
+    <%= "交換距離" %>
+    <%= f.text_field :after, class: 'form-control' %>km
+</div>
+<div>
+    <%= f.submit "履歴作成", class: 'form-control' %>
+</div>
+<% end %>

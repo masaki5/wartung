@@ -7,7 +7,7 @@ class PartsController < ApplicationController
       @car = Car.find(params[:car_id])
       @part = Part.find(params[:id])
       @log = Log.new
-      @logs = @part.logs
+      @logs = @part.logs.order(exchange: :desc).page(params[:page]).per(3)
     end
 
     def edit
@@ -25,8 +25,8 @@ class PartsController < ApplicationController
       @parts = @car.parts.page(params[:page]).per(6)
       #@log = Log.where(params[:log_id])
       if @part.save
-      @parts = car.parts
-      redirect_to request.referrer
+      @parts = @car.parts
+      redirect_to car_path(@car)
       else
         render "cars/show"
       end
@@ -34,8 +34,11 @@ class PartsController < ApplicationController
 
     def update
       part = Part.find(params[:id])
+      car = Car.find(params[:car_id])
       part.update(part_params)
-      redirect_to car_part_path
+        #@part = Part.find(params[:id])
+        #@car = Car.find(params[:car_id])
+        redirect_to car_part_path
     end
 
     def destroy

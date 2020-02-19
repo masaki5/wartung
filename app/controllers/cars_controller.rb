@@ -7,20 +7,10 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
-    #@user = User.find(params[:user_id])
     @partss = Part.find(params[:id])
-    #したのは全パーツ持ってくる
-    #@partss = Part.where(params[:id])
 	  @part = Part.new
     @parts = @car.parts.page(params[:page]).per(6)
-    #@log = Log.where(params[:log_id])
-    #交換推奨部計算
-    #now = Date.current
-    # log = @partss.logs.last
-    # if !log.next.nil?
-    #   v3 = log.next
-    #   @b = (v3 - now).to_i
-    # end
+    @log = @car.logs
   end
 
   def new

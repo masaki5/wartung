@@ -21,7 +21,7 @@
 
 
 
-    <table class="table table-hover table-inverse table-bordered ">
+    <table class="table table-hover table-inverse table-bordered">
 
       <thead class="thead-light">
         <th>
@@ -65,7 +65,8 @@
         <td><%= @car.inspection %></td>
         <td><%= @car.car_inspection %></td>
         <td><%= @car.register %></td>
-        <td><%= link_to '車両情報編集', edit_car_path(@car) %></td>
+        <td><button type="button" class="btn btn-primary btn-sm">
+            <%= link_to '車両情報編集', edit_car_path(@car), :style=>"color:white;" %></td>
       </tbody>
     </table>
   </div>
@@ -111,7 +112,9 @@
           <td>
             <%= link_to part.name, car_part_path(:car_id => @car.id, :id => part.id) %>
           </td>
-          <td><%= link_to "削除", car_part_path(:car_id => @car.id, :id => part.id), method: :delete%></td>
+          <td>
+            <%= link_to "削除", car_part_path(:car_id => @car.id, :id => part.id), method: :delete, data: { confirm: "本当に削除しますか?" } %>
+          </td>
           <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
           <% log = part.logs.last %>
           <!-- 両方あったら、表示なかったら非表示 -->
@@ -165,8 +168,9 @@
   <div class="col-sm-2">
     <%= render partial: 'parts/new', locals: { car: @car, part: @part} %>
     <br>
-    <%= link_to "履歴確認", car_part_logs_path(@car, @parts) %>
-    <br>
-    <%= link_to '戻る', cars_path %>
+    <button type="button" class="btn btn-primary btn-md">
+      <%= link_to "履歴確認", car_logs_path(@car), :style=>"color:white;" %></button>
+    <button type="button" class="btn btn-primary btn-md">
+      <%= link_to '戻る', :back, :style=>"color:white;" %></button>
   </div>
 </div>

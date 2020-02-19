@@ -25,6 +25,7 @@ body {
 	/*background-image: url("pyr.jpg");*/
 	background-color: whitesmoke;
 	height: 98vh;
+	width: 180vh;
 }
 
 .box2 {
@@ -34,9 +35,9 @@ body {
 
 .box3 {
 	background-color: slategray;
-	position: fixed;
+	margin-top: 0px;
 	height: 98vh;
-	width: 30vh;
+	width: 28vh;
 }
 
 .listings_header {
@@ -56,4 +57,8 @@ body {
 
 .top {
 	margin-left: 70px;
+}
+
+.nav {
+	margin-right: 10px;
 }

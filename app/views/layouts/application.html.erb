@@ -15,17 +15,11 @@
   <header>
     <div class="box2">
       <% if admin_signed_in? %>
-      <nav class="nav navbar-nav navbar-left" style="color: #fff">
-        <h3 class="top"><%= link_to "wartung", admin_users_path, :style=>"color:blue;" %></h3>
-      </nav>
+      <h3 class="top"><%= link_to "wartung", admin_users_path, :style=>"color:blue;" %></h3>
       <% elsif user_signed_in? %>
-      <nav class="nav navbar-nav navbar-left" style="color: #fff">
-        <h3 class="top"><%= link_to "wartung", root_path, :style=>"color:blue;" %></h3>
-      </nav>
+      <h3 class="top"><%= link_to "wartung", root_path, :style=>"color:blue;" %></h3>
       <% else %>
-      <nav class="nav navbar-nav navbar-left" style="color: #fff">
-        <h3><%= link_to "wartung", root_path, :style=>"color:blue;" %></h3>
-      </nav>
+      <h3 class="top"><%= link_to "wartung", root_path, :style=>"color:blue;" %></h3>
       <% end %>
     </div>
   </header>
