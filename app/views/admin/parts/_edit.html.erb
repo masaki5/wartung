@@ -1,0 +1,10 @@
+<h1>パーツ内容編集</h1>
+
+<%= form_for part,url: admin_user_car_part_path(car ,part),method: :patch do |f| %>
+<%= f.label "部品名" %>
+<%= f.text_field :name, class: 'form-control' %><br>
+<%= f.label "商品説明" %>
+<%= f.text_area :introduction , class: 'form-control'%><br>
+<%= f.submit "パーツ内容修正", class: 'form-control' %>
+<% end %>
+</div>

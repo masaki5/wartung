@@ -4,7 +4,7 @@ class Log < ApplicationRecord
     #has_many :parts, through: :log_parts
 
     belongs_to :part
-
+    validates :exchange, presence: true
     #accepts_nested_attributes_for :parts
 
 end

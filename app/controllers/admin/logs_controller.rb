@@ -1,72 +1,55 @@
 class Admin::LogsController < ApplicationController
-    # GET /logs
-  # GET /logs.json
+
   def index
-    @logs = Log.all
+    @car = Car.find(params[:car_id])
+    @user = User.find(params[:user_id])
+    @part = @car.parts
+    @log = @car.logs.order(created_at: :desc).page(params[:page]).per(6)
   end
 
-  # GET /logs/1
-  # GET /logs/1.json
+
   def show
+    @user = User.find(params[:user_id])
+    @log = Log.find(params[:id])
+    @car = Car.find(params[:car_id])
+    #@part = Part.find(params[:part_id])
+    @part = @car.parts
+    @logs = @log.part
   end
 
-  # GET /logs/new
-  def new
-    @log = Log.new
-  end
-
-  # GET /logs/1/edit
   def edit
+    @log = Log.find(params[:id])
+    @car = Car.find(params[:car_id])
+    @part = Part.find(params[:id])
   end
 
-  # POST /logs
-  # POST /logs.json
   def create
-    @log = Log.new(log_params)
-
-    respond_to do |format|
-      if @log.save
-        format.html { redirect_to @log, notice: 'Log was successfully created.' }
-        format.json { render :show, status: :created, location: @log }
-      else
-        format.html { render :new }
-        format.json { render json: @log.errors, status: :unprocessable_entity }
-      end
-    end
+     user = User.find(params[:user_id])
+     part = Part.find(params[:part_id])
+     car = Car.find(params[:car_id])
+     log = car.logs.build(log_params)
+     log.part_id = part.id
+     log.distance = car.mileage
+     log.save
+     logs = car.logs
+     redirect_to request.referrer
   end
 
-  # PATCH/PUT /logs/1
-  # PATCH/PUT /logs/1.json
   def update
-    respond_to do |format|
-      if @log.update(log_params)
-        format.html { redirect_to @log, notice: 'Log was successfully updated.' }
-        format.json { render :show, status: :ok, location: @log }
-      else
-        format.html { render :edit }
-        format.json { render json: @log.errors, status: :unprocessable_entity }
-      end
-    end
+     log = Log.find(params[:id])
+     log.update(log_params)
+     redirect_to request.referrer
   end
 
-  # DELETE /logs/1
-  # DELETE /logs/1.json
   def destroy
-    @log.destroy
-    respond_to do |format|
-      format.html { redirect_to logs_url, notice: 'Log was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    log = Log.find(params[:id])
+    log.destroy
+    redirect_to request.referrer
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_log
-      @log = Log.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def log_params
-      params.fetch(:log, {})
-    end
+  def log_params
+    params.require(:log).permit(:part_id, :exchange, :next, :after, :distance)
+  end
 end
