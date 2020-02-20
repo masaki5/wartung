@@ -71,7 +71,7 @@ gem 'kaminari'
 gem 'paranoia'
 gem 'pry-byebug'
 
-gem 'bootstrap', '~> 4.1.1'
+gem 'bootstrap', '~> 4.3.1'
 
 gem 'dotenv-rails'
 group :production do
