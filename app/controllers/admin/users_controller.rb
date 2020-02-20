@@ -1,25 +1,28 @@
 class Admin::UsersController < ApplicationController
-    #before_action :authenticate_admin!
+    before_action :authenticate_admin!
+
     def index
-        @users = User.all
+        @users = User.all.page(params[:page]).per(8)
     end
 
     def show
         @user = User.find(params[:id])
-        @car = @user.cars
-        @cars = Car.find(params[:id])
+        @cars = @user.cars.page(params[:page]).per(5)
+        @car = Car.new
     end
 
-    def edit
-        @user = User.find(params[:id])
+    def update
+        user = User.find(params[:id])
+        user.update(user_params)
+        redirect_to admin_user_path
     end
 
     def search
-    if params[:name].present?
-        @users = User.where('name LIKE ?', "%#{params[:name]}%")
-    else
-        @users = User.all
-    end
+        if params[:name].present?
+            @users = User.where('name LIKE ?', "%#{params[:name]}%")
+        else
+            @users = User.all
+        end
     end
 
     private

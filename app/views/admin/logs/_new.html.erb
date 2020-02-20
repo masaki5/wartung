@@ -1,6 +1,6 @@
 <h1>履歴追加</h1>
 
-<%= form_for [car, part, log] do |f| %>
+<%= form_for [car, part, log],url: admin_user_car_part_logs_path(user, car, part),method: :post do |f| %>
 <div>
     <%= "交換日" %>
     <%= f.date_field :exchange, class: 'form-control' %>

@@ -1,11 +1,8 @@
 class LogsController < ApplicationController
-  #before_action :set_log, only: [:show, :edit, :update, :destroy]
-
+    before_action :authenticate_user!
 
   def index
     @car = Car.find(params[:car_id])
-    #@logs = Log.where(params[:id]).order(created_at: :desc)
-    #@parts = Part.where(params[:part_id])
     @part = @car.parts
     @log = @car.logs.order(created_at: :desc).page(params[:page]).per(6)
   end
@@ -20,9 +17,7 @@ class LogsController < ApplicationController
   def edit
      @log = Log.find(params[:id])
      @car = Car.find(params[:car_id])
-    #  @part = Part.find(params[:part_id])
   end
-
 
   def create
      part = Part.find(params[:part_id])
@@ -36,21 +31,16 @@ class LogsController < ApplicationController
   end
 
   def update
-     #part = Part.find(params[:part_id])
-     #car = Car.find(params[:car_id])
      log = Log.find(params[:id])
      log.update(log_params)
      redirect_to car_log_path
   end
-
-
 
   def destroy
       log = Log.find(params[:id])
       log.destroy
       redirect_to request.referrer
   end
-
 
   private
 

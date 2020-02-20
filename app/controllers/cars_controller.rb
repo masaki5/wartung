@@ -2,19 +2,15 @@ class CarsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @cars = current_user.cars.all
+    @cars = current_user.cars.all.page(params[:page]).per(5)
+    @car = Car.new
   end
 
   def show
     @car = Car.find(params[:id])
-    @partss = Part.find(params[:id])
 	  @part = Part.new
-    @parts = @car.parts.page(params[:page]).per(6)
+    @parts = @car.parts.page(params[:page]).per(5)
     @log = @car.logs
-  end
-
-  def new
-    @car = Car.new
   end
 
   def edit
@@ -22,6 +18,7 @@ class CarsController < ApplicationController
   end
 
   def create
+    #@user = User.find(params[:user_id])
     car = Car.new(car_params)
     car.user_id = current_user.id
     car.save

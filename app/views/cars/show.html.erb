@@ -4,19 +4,6 @@
       <h1>車両情報</h1>
     </strong>
   </div>
-  <div class="col-sm-6">
-    <p id="notice"><%= notice %></p>
-    <% if @part.errors.any? %>
-    <div id="error_explanation">
-      <h5><%= @part.errors.count %>件のerrorが発生しました。</h5>
-      <ul>
-        <% @part.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-    <% end %>
-  </div>
   <div class="col-sm-12">
 
 
@@ -73,7 +60,7 @@
 
   <div class="col-sm-12">
     <div class="text-center">
-      <h2><strong>定期点検</strong></h2>
+      <h2><strong><i class="fas fa-wrench"></i>定期点検</strong></h2>
 
       <% now = Date.current %>
       <% v1 = @car.inspection %>
@@ -81,7 +68,8 @@
       <% if @v1 > 0 %>
       <p>1年点検まで残り<%= @v1 %>日</p>
       <% else %>
-      <p>1年点検まで残り0日 点検時期です</p>
+      1年点検まで残り0日
+      <p class="red">点検時期です</p>
       <% end %>
 
       <% v2 = @car.car_inspection %>
@@ -89,7 +77,8 @@
       <% if @v2 > 0 %>
       <p>車検まで残り<%= @v2 %>日</p>
       <% else %>
-      <p>車検まで残り0日 点検時期です</p>
+      車検まで残り0日
+      <p class="red">点検時期です</p>
       <% end %>
 
     </div>
@@ -99,11 +88,12 @@
       <thead class="thead-light">
         <tr>
           <th>パーツ名</th>
-          <th></th>
           <th>最終交換日</th>
           <th>交換推奨日</th>
           <th>残り日数</th>
           <th>残りkm</th>
+          <th>交換時距離</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -112,9 +102,7 @@
           <td>
             <%= link_to part.name, car_part_path(:car_id => @car.id, :id => part.id) %>
           </td>
-          <td>
-            <%= link_to "削除", car_part_path(:car_id => @car.id, :id => part.id), method: :delete, data: { confirm: "本当に削除しますか?" } %>
-          </td>
+
           <!--:car_id => @car.id, :id => part.idルートの番号（順番指定）-->
           <% log = part.logs.last %>
           <!-- 両方あったら、表示なかったら非表示 -->
@@ -138,7 +126,7 @@
             <% if y > 0 %>
             残り<%= y %>日
             <% else %>
-            交換時期です
+            <p class="red">交換時期です</p>
             <% end %>
             <% end %>
           </td>
@@ -152,12 +140,23 @@
             <% w = (q - z) %>
             <% g = (m - w) %>
             <% if g > 0 %>
-            残り<%= g %>km
+            残り<%= number_to_currency(g) %>
             <% else %>
-            交換時期です
+            <p class="red">交換時期です</p>
             <% end %>
             <% end %>
           </td>
+
+          <td>
+            <%if log && log.distance %>
+            <%= number_to_currency(log.distance) %>
+            <% end %>
+          </td>
+
+          <td>
+            <%= link_to "削除", car_part_path(:car_id => @car.id, :id => part.id), method: :delete, data: { confirm: "本当に削除しますか?" } %>
+          </td>
+
         </tr>
         <% end %>
       </tbody>
@@ -170,6 +169,12 @@
     <br>
     <button type="button" class="btn btn-primary btn-md">
       <%= link_to "履歴確認", car_logs_path(@car), :style=>"color:white;" %></button>
+
+    <button type="button" class="btn btn-primary btn-md">
+      <%= link_to '車一覧', cars_path, :style=>"color:white;" %></button>
+
+    <br><br>
+
     <button type="button" class="btn btn-primary btn-md">
       <%= link_to '戻る', :back, :style=>"color:white;" %></button>
   </div>

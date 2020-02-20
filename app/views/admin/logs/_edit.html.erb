@@ -1,7 +1,6 @@
 <h1>履歴内容修正</h1>
 
-
-<%= form_for [@car, @log]  do |f| %>
+<%= form_for [car, log],url: admin_user_car_part_logs_update_path(user, car, part, log),method: :patch do |f| %>
 <div>
     <%= "交換日" %>
     <%= f.date_field :exchange, class: 'form-control' %>
@@ -23,6 +22,6 @@
 <% end %>
 <br>
 <button type="button" class="btn btn-primary btn-md">
-    <%= link_to '履歴一覧へ', car_logs_path(@car, @log), :style=>"color:white;" %></button>
+    <%= link_to '履歴一覧へ', admin_user_car_logs_path(@user, @car), :style=>"color:white;" %></button>
 <button type="button" class="btn btn-primary btn-md">
-    <%= link_to '車詳細', car_path(@car), :style=>"color:white;" %></button>
+    <%= link_to '車詳細', admin_user_car_path(@user, @car), :style=>"color:white;" %></button>

@@ -1,18 +1,32 @@
-<h1>部品追加</h1>
+<h1>新規車両登録</h1>
 
-<%= form_for [car, part]  do |f| %>
-<div class="field row">
-    <%= f.label "部品名" %>
-    <%= f.text_field :name %>
-</div>
-<div class="field row">
-    <%= f.label "商品説明" %>
-    <%= f.text_area :introduction %>
+<%= form_for car,url: admin_user_cars_path(user),method: :post do |f| %>
+<%# <%= form_with model: car do |f|%>
+<div>
+    <%= "車両名" %>
+    <%= f.text_field :name, class: 'form-control',placeholder: "車両名" %>
 </div>
 
-<%= f.hidden_field :car_id, :value => car.id %>
+<div>
+    <%= "走行距離" %>
+    <%= f.text_field :mileage, class: 'form-control',placeholder: "走行距離" %><p>km</p>
+</div>
 
-<div class="actions row">
-    <%= f.submit "新規登録" %>
+<div>
+    <%= "点検日" %>
+    <%= f.date_field :inspection, class: 'form-control' %>
+</div>
+<div>
+    <%= "車検日" %>
+    <%= f.date_field :car_inspection, class: 'form-control' %>
+</div>
+
+<div>
+    <%= "車両登録日" %>
+    <%= f.date_field :register, class: 'form-control' %>
+</div>
+
+<div>
+    <%= f.submit "車両登録", class: 'form-control' %>
 </div>
 <% end %>

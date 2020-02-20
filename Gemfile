@@ -72,7 +72,6 @@ gem 'paranoia'
 gem 'pry-byebug'
 
 gem 'bootstrap', '~> 4.1.1'
-gem 'rails-i18n'
 
 gem 'dotenv-rails'
 group :production do

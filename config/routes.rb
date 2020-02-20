@@ -13,18 +13,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  #namespace :admin do
-    #resources :logs
-  #end
-
-  #namespace :admin do
-    #resources :parts
-  #end
-
-  #namespace :admin do
-    #resources :cars
-  #end
-
   namespace :admin do
     resources :users do
       get :search, on: :collection
@@ -33,6 +21,8 @@ Rails.application.routes.draw do
         resources :logs
       end
     end
+    post 'users/:user_id/cars/:car_id/parts/:part_id/logs' => 'logs#create',as: 'user_car_part_logs'
+    patch 'users/:user_id/cars/:car_id/parts/:part_id/logs/:id' => 'logs#update',as: 'user_car_part_logs_update'
   end
 
   resources :users

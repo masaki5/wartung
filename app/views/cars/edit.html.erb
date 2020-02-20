@@ -3,7 +3,7 @@
 		<div class="col-sm-4">
 			<h1>車情報編集</h1>
 
-			<%= form_for(@car) do |f| %>
+			<%= form_with model: @car do |f|%>
 			<div>
 				<%= "車両名" %>
 				<%= f.text_field :name, class: 'form-control' %>
@@ -34,6 +34,8 @@
 			<% end %><br>
 			<button type="button" class="btn btn-primary btn-md">
 				<%= link_to "車詳細", car_path(@car), :style=>"color:white;" %></button>
+			<button type="button" class="btn btn-primary btn-md">
+				<%= link_to "車一覧", cars_path, :style=>"color:white;" %></button>
 			<button type="button" class="btn btn-primary btn-md">
 				<%= link_to "戻る", :back, :style=>"color:white;" %></button>
 		</div>

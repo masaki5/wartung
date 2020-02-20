@@ -1,35 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-sm-6">
+    <h2>
+      <strong>パーツ名</strong>
+      <%= @part.name %>
+    </h2>
 
-<p>
-  <strong>部品名</strong>
-  <%= @part.name %>
-</p>
+    <p>
+      <strong>パーツ説明</strong>
+      <%= @part.introduction %>
+    </p>
 
-<p>
-  <strong>部品説明</strong>
-  <%= @part.introduction %>
-</p>
-
-<%= link_to 'パーツ編集', edit_admin_user_car_part_path(@part) %>
-
-</table>
-
-<table>
-  <thead>
-    <tr>
-      <th>交換日</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @logs.each do |log| %>
-  <tr>
-  <td><%= log.exchange %></td>
-  <td><%= log.part.name %></td>
-  <td><%= link_to '削除', car_log_path(@car, log), method: :delete %></td>
-  <% end %>
-  </tbody>
-</table>
-
-<%= render partial: 'parts/logs/new', locals: { car: @car, part: @part, log:@log} %>
-
-<%= link_to '車詳細', admin_user_car_path(@user, @car) %>
+    <table class="table table-hover table-inverse table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th>交換日</th>
+          <th>交換時走行距離</th>
+          <th>パーツ名</th>
+          <th>削除</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @logs.each do |log| %>
+        <tr>
+          <!--log.created_at.strftime("%Y年%-m月%-d日")-->
+          <td><%= log.exchange %></td>
+          <td><%= number_to_currency(log.distance) %></td>
+          <td><%= log.part.name %></td>
+          <td><%= link_to '履歴削除', admin_user_car_log_path(@user,@car, log), method: :delete %></td>
+          <% end %>
+      </tbody>
+    </table>
+    <%= paginate @logs %>
+  </div>
+  <div class="col-sm-6">
+  </div>
+  <div class="col-sm-6">
+    <%= render partial: 'admin/logs/new', locals: {user: @user, car: @car, part: @part, log:@log} %>
+    <br>
+    <button type="button" class="btn btn-primary btn-md">
+      <%= link_to "車詳細", admin_user_car_path(@user, @car.id), :style=>"color:white;" %></button>
+    <button type="button" class="btn btn-primary btn-md">
+      <%= link_to "戻る", :back, :style=>"color:white;" %></button>
+  </div>
+  <div class="col-sm-6">
+    <%= render partial: 'admin/parts/edit', locals: { car: @car, part: @part} %>
+  </div>
+</div>

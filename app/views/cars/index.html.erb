@@ -1,6 +1,4 @@
-<div class="container">
   <div class="row">
-    <p id="notice"><%= notice %></p>
     <div class="col-sm-8">
       <h1>登録車両一覧</h1>
 
@@ -23,9 +21,11 @@
           <% end %>
         </tbody>
       </table>
-
+      <%= paginate @cars %>
       <button type="button" class="btn btn-primary btn-md">
-        <%= link_to '新規登録', new_car_path, :style=>"color:white;" %></button>
+        <%= link_to '戻る', :back, :style=>"color:white;" %></button>
+    </div>
+    <div class="col-sm-4">
+      <%= render partial: 'cars/new', locals: { car: @car} %>
     </div>
   </div>
-</div>

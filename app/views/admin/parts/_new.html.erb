@@ -1,0 +1,19 @@
+<%# form_for(@part, url: '/admin/parts') do |f| %>
+<h1>部品追加</h1>
+
+<%= form_for part,url: admin_user_car_parts_path(user, car),method: :post do |f| %>
+<div class="field row">
+	<%= f.label "部品名" %>
+	<%= f.text_field :name, class: 'form-control' %>
+</div>
+<div class="field row">
+	<%= f.label "商品説明" %>
+	<%= f.text_area :introduction, class: 'form-control' %>
+</div>
+
+<%= f.hidden_field :car_id, :value => car.id %>
+
+<div class="actions row">
+	<%= f.submit "新規登録", class: 'form-control' %>
+</div>
+<% end %>

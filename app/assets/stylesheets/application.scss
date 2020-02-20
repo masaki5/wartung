@@ -17,40 +17,56 @@
 body {
 	margin-top: 0px;
 	padding: 0px;
+	// background-image: url("pyr.jpg");
+	// opacity: 0.7;
+	// background-color: rgba(255, 255, 255, 0.9);
+	// background-blend-mode: lighten;
+	// background-size: cover;
 	background-color: whitesmoke;
-	font-family: "Poppins", Arial, sans-serif;
+	font-family: 'Ubuntu Mono',
+		monospace;
 }
+
+
 
 .box1 {
-	/*background-image: url("pyr.jpg");*/
 	background-color: whitesmoke;
-	height: 98vh;
-	width: 180vh;
+	position: fixed;
+	// height: 98vh;
+	height: 900px;
+	width: 1420px;
 }
 
+
+// ヘッダー背景
 .box2 {
-	background-color: black;
+	background-color: #0275d8;
 	height: 5vh;
 }
 
+// サイドバー背景
 .box3 {
 	background-color: slategray;
+	// position: fixed;
 	margin-top: 0px;
-	height: 98vh;
-	width: 28vh;
+	height: 900px;
+	width: 225px;
 }
 
-.listings_header {
-	margin: 0 1rem 0.1rem;
-	text-transform: uppercase;
-	font-weight: 700;
-	color: #ab9ba9;
+.children {
+	bottom: 0px;
 }
+
+.box4 {
+	background-image: url("image_1.jpg");
+}
+
 
 .nav navbar-nav navbar-left {
 	padding: 10px;
 }
 
+// トップの右少しずらした
 .conteiner {
 	margin-right: 10px;
 }
@@ -59,6 +75,188 @@ body {
 	margin-left: 70px;
 }
 
+// home/top
+.top2 {
+	margin-top: 20px;
+}
+
 .nav {
 	margin-right: 10px;
+}
+
+// 点検日赤文字
+p.red {
+	color: red;
+}
+
+h2.text {
+	margin-left: 20px;
+}
+
+// top/button
+button.button2 {
+	font-size: 50px;
+	font-weight: bold;
+	padding: 5px 30px;
+	width: 800px;
+	height: 200px;
+	background-color: #0275d8;
+	color: #fff;
+	border-style: none;
+
+	box-shadow: 2px 2px 3px 1px #666;
+	-moz-box-shadow: 2px 2px 3px 1px #666;
+	-webkit-box-shadow: 2px 2px 3px 1px #666;
+
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
+
+}
+
+button.button2:hover {
+	background-color: #24d;
+	color: #fff;
+
+}
+
+
+.btn-social-long-twitter {
+	color: #FFF;
+	/*文字・アイコン色*/
+	border-radius: 7px;
+	/*角丸に*/
+	display: inline-block;
+	height: 50px;
+	/*高さ*/
+	width: 190px;
+	/*幅*/
+	text-align: center;
+	/*中身を中央寄せ*/
+	font-size: 25px;
+	/*文字のサイズ*/
+	line-height: 50px;
+	/*高さと合わせる*/
+	background: #1da1f3;
+	overflow: hidden;
+	/*はみ出た部分を隠す*/
+	text-decoration: none;
+	/*下線は消す*/
+}
+
+.btn-social-long-twitter .fa-twitter {
+	text-shadow: 2px 2px 0px #4287d6;
+	font-size: 30px;
+}
+
+.btn-social-long-twitter span {
+	display: inline-block;
+	transition: .5s;
+}
+
+.btn-social-long-twitter:hover span {
+	-webkit-transform: rotateX(360deg);
+	transform: rotateX(360deg);
+}
+
+.btn-social-long-facebook {
+	color: #FFF;
+	/*文字・アイコン色*/
+	border-radius: 7px;
+	/*角丸に*/
+	display: inline-block;
+	height: 50px;
+	/*高さ*/
+	width: 190px;
+	/*幅*/
+	text-align: center;
+	/*中身を中央寄せ*/
+	font-size: 25px;
+	/*文字のサイズ*/
+	line-height: 50px;
+	/*高さと合わせる*/
+	background: #4966a0;
+	overflow: hidden;
+	/*はみ出た部分を隠す*/
+	text-decoration: none;
+	/*下線は消す*/
+}
+
+.btn-social-long-facebook .fa-facebook {
+	text-shadow: 2px 2px 1px #224282;
+	font-size: 30px;
+}
+
+.btn-social-long-facebook span {
+	/*テキスト*/
+	display: inline-block;
+	transition: .5s;
+}
+
+.btn-social-long-facebook:hover span {
+	/*ホバーで一周回転*/
+	-webkit-transform: rotateX(360deg);
+	transform: rotateX(360deg);
+}
+
+.btn-social-long-insta {
+	/*ボタンの下地*/
+	color: #FFF;
+	/*文字・アイコン色*/
+	border-radius: 7px;
+	/*角丸に*/
+	position: relative;
+	display: inline-block;
+	height: 50px;
+	/*高さ*/
+	width: 190px;
+	/*幅*/
+	text-align: center;
+	/*中身を中央寄せ*/
+	font-size: 25px;
+	/*文字のサイズ*/
+	line-height: 50px;
+	/*高さと合わせる*/
+	background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
+	/*グラデーション①*/
+	overflow: hidden;
+	/*はみ出た部分を隠す*/
+	text-decoration: none;
+	/*下線は消す*/
+}
+
+.btn-social-long-insta:before {
+	/*グラデーション②*/
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	/*全体を覆う*/
+	height: 100%;
+	/*全体を覆う*/
+	background: linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat;
+}
+
+.btn-social-long-insta .fa-instagram {
+	/*アイコン*/
+	font-size: 35px;
+	/*アイコンサイズ*/
+	position: relative;
+	top: 4px;
+	/*アイコン位置の微調整*/
+}
+
+.btn-social-long-insta span {
+	/*テキスト*/
+	display: inline-block;
+	position: relative;
+	transition: .5s
+}
+
+.btn-social-long-insta:hover span {
+	/*ホバーで一周回転*/
+	-webkit-transform: rotateX(360deg);
+	transform: rotateX(360deg);
 }
