@@ -27,40 +27,86 @@ body {
 		monospace;
 }
 
-
+.footer {
+	font-family: 'Sacramento',
+		cursive;
+	font-size: 25px;
+	position: fixed;
+	bottom: 20px;
+	margin-bottom: 0;
+	width: 225px;
+	height: 25px;
+	background: slategray;
+	color: #000;
+	text-align: center;
+}
 
 .box1 {
 	background-color: whitesmoke;
-	position: fixed;
+	margin-top: 0px;
+	// position: fixed;
 	// height: 98vh;
-	height: 900px;
+	// height: 900px;
 	width: 1420px;
 }
 
-
 // ヘッダー背景
-.box2 {
-	background-color: #0275d8;
-	height: 5vh;
-}
+// .box2 {
+// 	background-color: #0275d8;
+// 	position: fixed;
+// 	color: #fff;
+// 	height: 5vh;
+// }
 
 // サイドバー背景
-.box3 {
+.box2 {
 	background-color: slategray;
-	// position: fixed;
+	position: fixed;
 	margin-top: 0px;
 	height: 900px;
 	width: 225px;
 }
 
-.children {
-	bottom: 0px;
+.box3 {
+	// margin-top: 20px;
 }
 
+// aboutページ
 .box4 {
-	background-image: url("image_1.jpg");
+	background: image-url('8.jpg');
+	// opacity: 0.7;
+	background-size: cover;
+	position: fixed;
+	background-repeat: no-repeat;
+	width: 1180px;
+	height: 770px;
 }
 
+// aboutカラー
+.box5 {
+	padding: 20px;
+	text-align: center;
+	font-size: 70px;
+}
+
+.box6 {
+	background-color: rgb(242, 244, 247);
+	width: 530px;
+	opacity: 0.8;
+	margin-left: 600px;
+}
+
+.abo {
+	text-align: center;
+}
+
+// p.white {
+// 	color: white;
+// }
+
+// h3.white {
+// 	color: white;
+// }
 
 .nav navbar-nav navbar-left {
 	padding: 10px;
@@ -72,12 +118,24 @@ body {
 }
 
 .top {
-	margin-left: 70px;
+	font-size: 33px;
+	// margin-left: 20px;
+	border-bottom: solid 4px #0275d8;
 }
 
 // home/top
 .top2 {
 	margin-top: 20px;
+}
+
+// 全体を少し下げた
+.top3 {
+	margin-top: 10px;
+}
+
+// ログイン系下げた
+.top4 {
+	margin-top: 170px;
 }
 
 .nav {
@@ -90,7 +148,19 @@ p.red {
 }
 
 h2.text {
-	margin-left: 20px;
+	margin-left: 10px;
+}
+
+h2.text2 {
+	margin-top: 5px;
+	margin-left: 10px;
+	font-size: 26px;
+}
+
+// サイドバーのトップとの間
+h2.text3 {
+	margin-left: 10px;
+	margin-top: 20px;
 }
 
 // top/button
@@ -111,8 +181,6 @@ button.button2 {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-
-
 }
 
 button.button2:hover {
@@ -121,142 +189,42 @@ button.button2:hover {
 
 }
 
-
-.btn-social-long-twitter {
-	color: #FFF;
-	/*文字・アイコン色*/
+.select {
+	color: white;
 	border-radius: 7px;
-	/*角丸に*/
 	display: inline-block;
 	height: 50px;
-	/*高さ*/
 	width: 190px;
-	/*幅*/
 	text-align: center;
-	/*中身を中央寄せ*/
-	font-size: 25px;
-	/*文字のサイズ*/
-	line-height: 50px;
-	/*高さと合わせる*/
-	background: #1da1f3;
-	overflow: hidden;
-	/*はみ出た部分を隠す*/
-	text-decoration: none;
-	/*下線は消す*/
-}
-
-.btn-social-long-twitter .fa-twitter {
-	text-shadow: 2px 2px 0px #4287d6;
 	font-size: 30px;
+	line-height: 50px;
+	background: #0275d8;
+	text-decoration: none;
 }
 
-.btn-social-long-twitter span {
-	display: inline-block;
-	transition: .5s;
-}
-
-.btn-social-long-twitter:hover span {
-	-webkit-transform: rotateX(360deg);
-	transform: rotateX(360deg);
-}
-
-.btn-social-long-facebook {
-	color: #FFF;
-	/*文字・アイコン色*/
+.select2 {
+	color: white;
 	border-radius: 7px;
-	/*角丸に*/
 	display: inline-block;
 	height: 50px;
-	/*高さ*/
 	width: 190px;
-	/*幅*/
 	text-align: center;
-	/*中身を中央寄せ*/
 	font-size: 25px;
-	/*文字のサイズ*/
 	line-height: 50px;
-	/*高さと合わせる*/
-	background: #4966a0;
-	overflow: hidden;
-	/*はみ出た部分を隠す*/
+	background: #0275d8;
 	text-decoration: none;
-	/*下線は消す*/
 }
 
-.btn-social-long-facebook .fa-facebook {
-	text-shadow: 2px 2px 1px #224282;
-	font-size: 30px;
+.pagination>li>a {
+	border: none;
+	color: black;
 }
 
-.btn-social-long-facebook span {
-	/*テキスト*/
-	display: inline-block;
-	transition: .5s;
+.pagination>.active>a {
+	background: #93c9ff;
+	border-radius: 18px;
 }
 
-.btn-social-long-facebook:hover span {
-	/*ホバーで一周回転*/
-	-webkit-transform: rotateX(360deg);
-	transform: rotateX(360deg);
-}
-
-.btn-social-long-insta {
-	/*ボタンの下地*/
-	color: #FFF;
-	/*文字・アイコン色*/
-	border-radius: 7px;
-	/*角丸に*/
-	position: relative;
-	display: inline-block;
-	height: 50px;
-	/*高さ*/
-	width: 190px;
-	/*幅*/
-	text-align: center;
-	/*中身を中央寄せ*/
-	font-size: 25px;
-	/*文字のサイズ*/
-	line-height: 50px;
-	/*高さと合わせる*/
-	background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
-	/*グラデーション①*/
-	overflow: hidden;
-	/*はみ出た部分を隠す*/
-	text-decoration: none;
-	/*下線は消す*/
-}
-
-.btn-social-long-insta:before {
-	/*グラデーション②*/
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	/*全体を覆う*/
-	height: 100%;
-	/*全体を覆う*/
-	background: linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat;
-}
-
-.btn-social-long-insta .fa-instagram {
-	/*アイコン*/
-	font-size: 35px;
-	/*アイコンサイズ*/
-	position: relative;
-	top: 4px;
-	/*アイコン位置の微調整*/
-}
-
-.btn-social-long-insta span {
-	/*テキスト*/
-	display: inline-block;
-	position: relative;
-	transition: .5s
-}
-
-.btn-social-long-insta:hover span {
-	/*ホバーで一周回転*/
-	-webkit-transform: rotateX(360deg);
-	transform: rotateX(360deg);
+.pagination>li>a:hover {
+	border-radius: 18px;
 }

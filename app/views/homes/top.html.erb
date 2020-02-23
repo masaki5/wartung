@@ -14,7 +14,13 @@
           <%= link_to "日常点検",root_path, :style=>"color:white;" %></button>
         日常的なクルマの点検方法の説明
         <br><br>
-        <button class="button2" type="submit"><a class="fas fa-search">マイページ</a></button>
+        <% if user_signed_in? %>
+        <button class="button2" type="submit"><a
+            class="fas fa-search"><%= link_to "マイページ", user_path(current_user), :style=>"color:white;" %></a></button>
+        <% else %>
+        <button class="button2" type="submit"><a
+            class="fas fa-search"><%= link_to "マイページ", new_user_session_path, :style=>"color:white;" %></a></button>
+        <% end %>
         <i class="fab fa-whmcs"></i>
         <i class="fas fa-yen-sign"></i>
       </div>

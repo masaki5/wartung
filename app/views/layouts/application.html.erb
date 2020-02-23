@@ -9,34 +9,26 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   <%= favicon_link_tag 'favicon.ico' %>
+  <script src="https://kit.fontawesome.com/91cb576a9e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <script src="https://kit.fontawesome.com/91cb576a9e.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="style.css">
   <header>
-    <div class="box2">
-      <% if admin_signed_in? %>
-      <h3 class="top"><%= link_to "wartung", admin_users_path, :style=>"color:white;" %> <i class="fas fa-car-side"></i>
-      </h3>
-      <% elsif user_signed_in? %>
-      <h3 class="top"><%= link_to "wartung", root_path, :style=>"color:white;" %> <i class="fas fa-car-side"></i></h3>
-      <% else %>
-      <h3 class="top"><%= link_to "wartung", root_path, :style=>"color:white;" %> <i class="fas fa-car-side"></i></h3>
-      <% end %>
-    </div>
   </header>
 
   <div class="conteiner">
     <div class="box1">
       <div class="row">
         <div class="col-2">
-          <div class="box3">
+          <div class="box2">
             <%= render'layouts/sidebar' %>
           </div>
         </div>
         <div class="col-10">
-          <%= yield %>
+          <div class="top3">
+            <%= yield %>
+          </div>
         </div>
       </div>
     </div>
