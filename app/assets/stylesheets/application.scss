@@ -10,13 +10,242 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
- *= require_self
  */
 
-@import "bootstrap-sprockets";  /*ここを追加*/
-@import "bootstrap";            /*ここを追加*/
+@import "bootstrap";
 
-#body {
-		margin-top: 60px;
+body {
+	margin-top: 0px;
+	padding: 0px;
+	// background-image: url("pyr.jpg");
+	// opacity: 0.7;
+	// background-color: rgba(255, 255, 255, 0.9);
+	// background-blend-mode: lighten;
+	// background-size: cover;
+	background-color: whitesmoke;
+	font-family: 'Ubuntu Mono',
+		monospace;
+}
+
+.footer {
+	font-family: 'Sacramento',
+		cursive;
+	font-size: 25px;
+	position: fixed;
+	bottom: 20px;
+	margin-bottom: 0;
+	width: 225px;
+	height: 25px;
+	background: slategray;
+	color: #000;
+	text-align: center;
+}
+
+.box1 {
+	background-color: whitesmoke;
+	margin-top: 0px;
+	// position: fixed;
+	// height: 98vh;
+	// height: 900px;
+	width: 1420px;
+}
+
+// ヘッダー背景
+// .box2 {
+// 	background-color: #0275d8;
+// 	position: fixed;
+// 	color: #fff;
+// 	height: 5vh;
+// }
+
+// サイドバー背景
+.box2 {
+	background-color: slategray;
+	position: fixed;
+	margin-top: 0px;
+	height: 900px;
+	width: 225px;
+}
+
+.box3 {
+	// margin-top: 20px;
+}
+
+// aboutページ
+.box4 {
+	background: image-url('8.jpg');
+	// opacity: 0.7;
+	background-size: cover;
+	position: fixed;
+	background-repeat: no-repeat;
+	width: 1180px;
+	height: 770px;
+}
+
+// aboutカラー
+.box5 {
+	padding: 20px;
+	text-align: center;
+	font-size: 70px;
+}
+
+.box6 {
+	background-color: rgb(242, 244, 247);
+	width: 530px;
+	opacity: 0.8;
+	margin-left: 600px;
+}
+
+.abo {
+	text-align: center;
+	// margin-left: 10px;
+}
+
+.ab {
+	margin-left: 10px;
+}
+
+// p.white {
+// 	color: white;
+// }
+
+// h3.white {
+// 	color: white;
+// }
+
+.nav navbar-nav navbar-left {
+	padding: 10px;
+}
+
+// トップの右少しずらした
+.conteiner {
+	margin-right: 10px;
+}
+
+.top {
+	font-size: 33px;
+	// margin-left: 20px;
+	border-bottom: solid 4px #0275d8;
+}
+
+// home/top
+.top2 {
+	margin-top: 20px;
+}
+
+// 全体を少し下げた
+.top3 {
+	margin-top: 10px;
+}
+
+// ログイン系下げた
+.top4 {
+	margin-top: 170px;
+}
+
+.nav {
+	margin-right: 10px;
+}
+
+// 点検日赤文字
+p.red {
+	color: red;
+}
+
+h2.text {
+	margin-left: 10px;
+}
+
+h2.text2 {
+	margin-top: 5px;
+	margin-left: 10px;
+	font-size: 26px;
+}
+
+// サイドバーのトップとの間
+h2.text3 {
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+// top/button
+button.button2 {
+	font-size: 50px;
+	font-weight: bold;
+	padding: 5px 30px;
+	width: 800px;
+	height: 200px;
+	background-color: #0275d8;
+	color: #fff;
+	border-style: none;
+
+	box-shadow: 2px 2px 3px 1px #666;
+	-moz-box-shadow: 2px 2px 3px 1px #666;
+	-webkit-box-shadow: 2px 2px 3px 1px #666;
+
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+button.button2:hover {
+	background-color: #24d;
+	color: #fff;
+
+}
+
+.select {
+	color: white;
+	border-radius: 7px;
+	display: inline-block;
+	height: 50px;
+	width: 190px;
+	text-align: center;
+	font-size: 30px;
+	line-height: 50px;
+	background: #0275d8;
+	text-decoration: none;
+}
+
+.select2 {
+	color: white;
+	border-radius: 7px;
+	display: inline-block;
+	height: 50px;
+	width: 190px;
+	text-align: center;
+	font-size: 25px;
+	line-height: 50px;
+	background: #0275d8;
+	text-decoration: none;
+}
+
+.pagination>li>a {
+	border: none;
+	color: black;
+}
+
+.pagination>.active>a {
+	background: #93c9ff;
+	border-radius: 18px;
+}
+
+.pagination>li>a:hover {
+	border-radius: 18px;
+}
+
+.oil {
+	background: image-url('01.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 800px;
+	height: 300px;
+}
+
+.oil2 {
+	background: image-url('012.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 300px;
 }

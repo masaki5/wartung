@@ -2,33 +2,15 @@ class CarsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @cars = current_user.cars.all
+    @cars = current_user.cars.all.page(params[:page]).per(5)
+    @car = Car.new
   end
 
   def show
     @car = Car.find(params[:id])
 	  @part = Part.new
-    @parts = @car.parts
-
-    require 'date'
-    now = Date.current
-    #点検日
-    v1 = @car.inspection
-    #残り1年点検日数
-    @v1 = (v1 - now).to_i
-    #車検日
-    v2 = @car.car_inspection
-    #残り2年点検日数
-    @v2 = (v2 - now).to_i
-    #登録日経年数
-    d1 = @car.register.strftime("%Y%m%d").to_i
-    d2 = Date.today.strftime("%Y%m%d").to_i
-    @age = (d2 - d1) /10000
-
-  end
-
-  def new
-    @car = Car.new
+    @parts = @car.parts.page(params[:page]).per(5)
+    @log = @car.logs
   end
 
   def edit
@@ -36,6 +18,7 @@ class CarsController < ApplicationController
   end
 
   def create
+    #@user = User.find(params[:user_id])
     car = Car.new(car_params)
     car.user_id = current_user.id
     car.save
@@ -52,7 +35,7 @@ class CarsController < ApplicationController
     car = Car.find(params[:id])
     car.destroy
     redirect_to cars_path
-end
+  end
 
   private
     def car_params

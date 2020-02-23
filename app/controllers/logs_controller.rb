@@ -1,13 +1,10 @@
 class LogsController < ApplicationController
-  #before_action :set_log, only: [:show, :edit, :update, :destroy]
-
+    before_action :authenticate_user!
 
   def index
     @car = Car.find(params[:car_id])
-    @logs = Log.where(params[:id])
-    #@parts = Part.find(params[:part_id])
     @part = @car.parts
-    @log = @car.logs
+    @log = @car.logs.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def show
@@ -17,42 +14,32 @@ class LogsController < ApplicationController
     @logs = @log.part
   end
 
-  def new
-    @log = Log.new
-    @car = Car.find(params[:car_id])
-    @part = Part.where(part_id: params[:part_id])
-    @parts = @car.parts
-  end
-
-  def edit
-    @log = Log.find(params[:id])
-  end
-
-
   def create
-
-    #part = Part.find(params[:part_id])
-    car = Car.find(params[:car_id])
-    log = car.logs.new(log_params)
-    log.save
-    @logs = car.logs
-    redirect_to root_path
+     part = Part.find(params[:part_id])
+     car = Car.find(params[:car_id])
+     log = car.logs.build(log_params)
+     log.part_id = part.id
+     log.distance = car.mileage
+     log.save
+     logs = car.logs
+     redirect_to request.referrer
   end
-
 
   def update
+     log = Log.find(params[:id])
+     log.update(log_params)
+     redirect_to car_log_path
   end
 
-
   def destroy
-    log = Log.find(params[:id])
-    log.destroy
-    redirect_to request.referrer
+      log = Log.find(params[:id])
+      log.destroy
+      redirect_to request.referrer
   end
 
   private
 
     def log_params
-      params.require(:log).permit(:part_id)
+      params.require(:log).permit(:part_id, :exchange, :next, :after, :distance)
     end
 end

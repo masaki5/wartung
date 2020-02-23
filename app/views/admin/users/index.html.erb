@@ -1,21 +1,28 @@
-<p id="notice"><%= notice %></p>
-
-<h1>会員一覧</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tbody>
-    <% @users.each do |user| %>
-     <td><%= user.id %></td>
-        <td><%= link_to user.name, admin_user_path(user) %></td>
-      </tr>
+<div class="row">
+  <div class="col-sm-6">
+    <h1>会員一覧</h1>
+    <%= form_with url: search_admin_users_path, method: :get, local: true do |f| %>
+    <%= f.text_field :name %>
+    <%= f.submit :search %>
     <% end %>
-  </tbody>
-</table>
+
+    <table class="table table-hover table-inverse table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th>会員ID</th>
+          <th>会員名</th>
+        </tr>
+      </thead>
+
+      <tbody>
+      <tbody>
+        <% @users.each do |user| %>
+        <td><%= user.id %></td>
+        <td><%= link_to user.name, admin_user_path(user) %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @users %>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<h1>履歴内容修正</h1>
+
+<%= form_for [car, log],url: admin_user_car_part_logs_update_path(user, car, part, log),method: :patch do |f| %>
+<div>
+    <%= "交換日" %>
+    <%= f.date_field :exchange, class: 'form-control' %>
+</div>
+
+<div>
+    <%= "交換推奨日" %>
+    <%= f.date_field :next, class: 'form-control' %>
+</div>
+
+<div>
+    <%= "交換距離" %>
+    <%= f.text_field :after, class: 'form-control' %>km
+</div>
+
+<div>
+    <%= f.submit "履歴修正", class: 'form-control' %>
+</div>
+<% end %>
+<br>
+<button type="button" class="btn btn-primary btn-md">
+    <%= link_to '履歴一覧へ', admin_user_car_logs_path(@user, @car), :style=>"color:white;" %></button>
+<button type="button" class="btn btn-primary btn-md">
+    <%= link_to '車詳細', admin_user_car_path(@user, @car), :style=>"color:white;" %></button>

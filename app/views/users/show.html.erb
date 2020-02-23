@@ -1,15 +1,36 @@
-<div class = "row">
-<h2>マイページ</h2>
-<tr><th>氏名</th>
-<td><%= current_user.name %></td></tr>
-<tr><th>メールアドレス</th>
-<td><%= current_user.email %></td></tr>
-<br>
-    <% @cars.each do |car| %>
-      <tr>
-        <td><%= link_to car.name, car_parts_path(car.id) %></td>
-        <td><%= link_to 'Show', car_path(car.id) %></td>
-      </tr>
-    <% end %>
-
+<div class="row">
+  <div class="col-sm-4">
+    <h2>マイページ</h2>
+    <table class="table table-hover table-inverse table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%= current_user.name %></td>
+          <td><%= current_user.email %></td>
+        </tr>
+      </tbody>
+    </table>
+    <button type="button" class="btn btn-primary btn-md">
+      <%= link_to "ユーザー編集", edit_user_registration_path, :style=>"color:white;" %></button>
+    <br><br>
+    <table class="table table-hover table-inverse table-bordered">
+      <thead>
+        <tr>
+          <th>車一覧</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @cars.each do |car| %>
+        <tr>
+          <td><%= link_to car.name, car_path(car.id) %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

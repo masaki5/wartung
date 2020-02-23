@@ -5,4 +5,14 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
          has_many :cars, dependent: :destroy
+         validates :name, presence: true
+         validates :email, presence: true, uniqueness: true
+
+      def self.search(search)
+        if search
+            User.where(['name LIKE ?', "%#{search}%"])
+        else
+            User.all
+        end
+      end
 end

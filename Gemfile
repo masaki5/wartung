@@ -66,11 +66,12 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem "refile"
-gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'paranoia'
 gem 'pry-byebug'
+
+gem 'bootstrap', '~> 4.3.1'
 
 gem 'dotenv-rails'
 group :production do

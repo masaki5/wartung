@@ -1,48 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Wartung</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Wartung</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= favicon_link_tag 'favicon.ico' %>
+  <script src="https://kit.fontawesome.com/91cb576a9e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
   <header>
-      <div class="container">
-        <nav class="nav navbar-nav navbar-left" style="color: #fff">
-         <h3><%= link_to "wartung", root_path, :style=>"color:blue;" %></h3>
-        </nav>
-         <nav>
-          <ul class="nav navbar-nav navbar-right">
+  </header>
 
-              <% if admin_signed_in? %>
-                  <li><%= link_to "会員一覧", admin_users_path, :style=>"color:blue;" %></li>
-                  <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></button>
-                  <!--  -->
-                  <p class="navbar-text" style="color:red;">管理ログイン中</p>
-              <% elsif user_signed_in? %>
-                  <li><%= link_to "about", homes_about_path, :style=>"color:blue;" %></li>
-                  <li><%= link_to "マイページ", user_path(current_user), :style=>"color:blue;" %></li>
-                  <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
-                  <p class="navbar-text" style="color: blue">ログイン中</p>
-              <% else %>
-                  <li><%= link_to "Home", root_path, :style=>"color:red;" %></li>
-                  <li><%= link_to "About", homes_about_path, :style=>"color:red;" %></li>
-                  <li><%= link_to "新規登録", new_user_registration_path, :style=>"color:blue;" %></li>
-                  <button type="button" class="btn btn-default navbar-btn"><%= link_to "ログイン", new_user_session_path %></button>
-                  <li><p class="navbar-text" style="color:blue;">未ログイン</p></li>
-              <% end %>
-
-          </ul>
-         </nav>
-      </<div>
-    </header>
-    <div class = "container">
-    <%= yield %>
+  <div class="conteiner">
+    <div class="box1">
+      <div class="row">
+        <div class="col-2">
+          <div class="box2">
+            <%= render'layouts/sidebar' %>
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="top3">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
     </div>
-  </body>
+  </div>
+</body>
+
 </html>
