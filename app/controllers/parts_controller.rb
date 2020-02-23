@@ -9,16 +9,6 @@ class PartsController < ApplicationController
   end
 
   def create
-    # @car = Car.find(params[:car_id])
-    # @part = @car.parts.new(part_params)
-    # @part.car_id = @car.id
-    # @parts = @car.parts.page(params[:page]).per(5)
-    # if @part.save
-    #   @parts = @car.parts
-    #   redirect_to car_path(@car)
-    # else
-    #   render "cars/show"
-    # end
     car = Car.find(params[:car_id])
     part = car.parts.new(part_params)
     part.car_id = car.id

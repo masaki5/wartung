@@ -98,6 +98,11 @@ body {
 
 .abo {
 	text-align: center;
+	// margin-left: 10px;
+}
+
+.ab {
+	margin-left: 10px;
 }
 
 // p.white {
@@ -227,4 +232,20 @@ button.button2:hover {
 
 .pagination>li>a:hover {
 	border-radius: 18px;
+}
+
+.oil {
+	background: image-url('01.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 800px;
+	height: 300px;
+}
+
+.oil2 {
+	background: image-url('012.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 300px;
 }
