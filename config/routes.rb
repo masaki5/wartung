@@ -29,7 +29,7 @@ Rails.application.routes.draw do
 
   resources :cars, only: [:show,:index,:edit,:update,:create,:destroy] do
     resources :parts, only: [:show,:update,:create,:destroy] do
-      # resources :logs , :controller => "parts/logs"
+       resources :logs , :controller => "parts/logs"
     end
     resources :logs, only: [:show,:index,:update,:create,:destroy]
   end
