@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
          has_many :cars, dependent: :destroy
          validates :name, presence: true
+         validates :email, presence: true, uniqueness: true
 
       def self.search(search)
         if search

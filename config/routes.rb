@@ -25,13 +25,13 @@ Rails.application.routes.draw do
     patch 'users/:user_id/cars/:car_id/parts/:part_id/logs/:id' => 'logs#update',as: 'user_car_part_logs_update'
   end
 
-  resources :users
+  resources :users, only: [:show,:edit,:update,:create]
 
-  resources :cars do
-    resources :parts do
-      resources :logs , :controller => "parts/logs"
+  resources :cars, only: [:show,:index,:edit,:update,:create,:destroy] do
+    resources :parts, only: [:show,:update,:create,:destroy] do
+      # resources :logs , :controller => "parts/logs"
     end
-    resources :logs
+    resources :logs, only: [:show,:index,:update,:create,:destroy]
   end
 
   namespace :admin do
@@ -46,6 +46,9 @@ Rails.application.routes.draw do
 
   root to: 'homes#top'
 
+  #  日常点検view
+  get 'dailys/daily'
+  get 'dailys/oil'
 
 end
 

@@ -14,11 +14,6 @@ class LogsController < ApplicationController
     @logs = @log.part
   end
 
-  def edit
-     @log = Log.find(params[:id])
-     @car = Car.find(params[:car_id])
-  end
-
   def create
      part = Part.find(params[:part_id])
      car = Car.find(params[:car_id])

@@ -25,8 +25,8 @@
         </tr>
       </thead>
       <tbody>
+        <% @cars.each do |car| %>
         <tr>
-          <% @cars.each do |car| %>
           <td><%= link_to car.name, car_path(car.id) %></td>
           <% end %>
         </tr>
