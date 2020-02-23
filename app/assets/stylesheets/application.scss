@@ -41,32 +41,72 @@ body {
 	text-align: center;
 }
 
-
-
 .box1 {
 	background-color: whitesmoke;
-	position: fixed;
+	margin-top: 0px;
+	// position: fixed;
 	// height: 98vh;
-	height: 900px;
+	// height: 900px;
 	width: 1420px;
 }
 
-
 // ヘッダー背景
-.box2 {
-	background-color: #0275d8;
-	color: #fff;
-	height: 5vh;
-}
+// .box2 {
+// 	background-color: #0275d8;
+// 	position: fixed;
+// 	color: #fff;
+// 	height: 5vh;
+// }
 
 // サイドバー背景
-.box3 {
+.box2 {
 	background-color: slategray;
-	// position: fixed;
+	position: fixed;
 	margin-top: 0px;
 	height: 900px;
 	width: 225px;
 }
+
+.box3 {
+	// margin-top: 20px;
+}
+
+// aboutページ
+.box4 {
+	background: image-url('8.jpg');
+	// opacity: 0.7;
+	background-size: cover;
+	position: fixed;
+	background-repeat: no-repeat;
+	width: 1180px;
+	height: 770px;
+}
+
+// aboutカラー
+.box5 {
+	padding: 20px;
+	text-align: center;
+	font-size: 70px;
+}
+
+.box6 {
+	background-color: rgb(242, 244, 247);
+	width: 530px;
+	opacity: 0.8;
+	margin-left: 600px;
+}
+
+.abo {
+	text-align: center;
+}
+
+// p.white {
+// 	color: white;
+// }
+
+// h3.white {
+// 	color: white;
+// }
 
 .nav navbar-nav navbar-left {
 	padding: 10px;
@@ -78,12 +118,24 @@ body {
 }
 
 .top {
-	margin-left: 30px;
+	font-size: 33px;
+	// margin-left: 20px;
+	border-bottom: solid 4px #0275d8;
 }
 
 // home/top
 .top2 {
 	margin-top: 20px;
+}
+
+// 全体を少し下げた
+.top3 {
+	margin-top: 10px;
+}
+
+// ログイン系下げた
+.top4 {
+	margin-top: 170px;
 }
 
 .nav {
@@ -105,6 +157,12 @@ h2.text2 {
 	font-size: 26px;
 }
 
+// サイドバーのトップとの間
+h2.text3 {
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
 // top/button
 button.button2 {
 	font-size: 50px;
@@ -123,8 +181,6 @@ button.button2 {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-
-
 }
 
 button.button2:hover {
@@ -132,7 +188,6 @@ button.button2:hover {
 	color: #fff;
 
 }
-
 
 .select {
 	color: white;
@@ -158,4 +213,18 @@ button.button2:hover {
 	line-height: 50px;
 	background: #0275d8;
 	text-decoration: none;
+}
+
+.pagination>li>a {
+	border: none;
+	color: black;
+}
+
+.pagination>.active>a {
+	background: #93c9ff;
+	border-radius: 18px;
+}
+
+.pagination>li>a:hover {
+	border-radius: 18px;
 }

@@ -2,13 +2,19 @@
     <nav class="navbar fixed-left navbar-expand-lg">
         <ul class="nav navbar-nav navbar-left">
             <% if admin_signed_in? %>
-            <h2 class="text"><%= link_to "会員一覧", admin_users_path, :style=>"color:white;" %></h2>
+            <h3 class="top"><%= link_to "wartung", admin_users_path, :style=>"color:white;" %> <i
+                    class="fa fa-car-side"></i>
+            </h3>
+            <h2 class="text3"><%= link_to "会員一覧", admin_users_path, :style=>"color:white;" %></h2>
             <i class="select2"><span>管理ログイン中</span></i>
             <h2 class="text"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, :style=>"color:black;" %>
             </h2>
             <% elsif user_signed_in? %>
             <div class="hed">
-                <h2 class="text"><%= link_to "Home", root_path, :style=>"color:white;" %></h2>
+                <h3 class="top"><%= link_to "wartung", root_path, :style=>"color:white;" %> <i
+                        class="fa fa-car-side fa-fw"></i>
+                </h3>
+                <h2 class="text3"><%= link_to "Home", root_path, :style=>"color:white;" %></h2>
                 <h2 class="text"><%= link_to "About", homes_about_path, :style=>"color:white;" %></h2>
                 <h2 class="text"><%= link_to "車両一覧",cars_path, :style=>"color:white;" %></h2>
                 <h2 class="text"><%= link_to "マイページ", user_path(current_user), :style=>"color:white;" %></h2>
@@ -18,7 +24,10 @@
             </div>
 
             <% else %>
-            <h2 class="text"><%= link_to "Home", root_path, :style=>"color:white;" %></h2>
+            <h3 class="top"><%= link_to "wartung", root_path, :style=>"color:white;" %> <i
+                    class="fa fa-car-side fa-fw"></i>
+            </h3>
+            <h2 class="text3"><%= link_to "Home", root_path, :style=>"color:white;" %></h2>
             <h2 class="text"><%= link_to "About", homes_about_path, :style=>"color:white;" %></h2>
             <h2 class="text"><%= link_to "新規登録", new_user_registration_path, :style=>"color:white;" %></h2>
             <h2 class="text"><%= link_to "ログイン", new_user_session_path, :style=>"color:black;" %></h2>
