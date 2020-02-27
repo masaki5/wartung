@@ -2,60 +2,31 @@
 
 プロジェクト・タイトル
 ------
-## WARTUNG ##
+### WARTUNG ###
 車のメンテナンス管理アプリ  
 (C)2020 MasakiMatsuda
-
- 
  
 使い方
 ------
-### インライン ###
-インラインのコードは、**バッククォート** (`` ` ``) で囲みます。
+### 説明 ###
+新規の方は始めにユーザー情報を登録してください。  
+
+ユーザには、まず自分の車の情報を登録してもらいます。  
+車情報は全て埋めてください。
+
+登録が済みますと、次に交換したパーツの情報を登録してもらいます。  
+同じ名前は使えません。
+
+次にパーツの詳細に行き、交換日、次回交換推奨日、次回交換推奨距離を入力してください。
  
 ### ブロックレベル ###
-    function f () {
-        alert(0);  /* 先頭に4文字のスペース、
-                      もしくはタブを挿入します */
-    }
  
 パラメータの解説
 ----------------
-リストの間に空行を挟むと、それぞれのリストに `<p>` タグが挿入され、行間が
-広くなります。
- 
-    def MyFunction(param1, param2, ...)
- 
-+   `param1` :
-    _パラメータ1_ の説明
- 
-+   `param2` :
-    _パラメータ2_ の説明
+
  
 関連情報
 --------
-### リンク、ネストしたリスト
 1. [リンク1](http://example.com/ "リンクのタイトル")
     * ![画像1](http://github.com/unicorn.png "画像のタイトル")
-2. [リンク2][link]
-    - [![画像2][image]](https://github.com/)
- 
-  [link]: http://example.com/ "インデックス型のリンク"
-  [image]: http://github.com/github.png "インデックス型の画像"
- 
-### 引用、ネストした引用
-> これは引用です。
->
-> > スペースを挟んで `>` を重ねると、引用の中で引用ができますが、
-> > GitHubの場合、1行前に空の引用が無いと、正しくマークアップされません。
- 
-ライセンス
-----------
-Copyright &copy; 2011 xxxxxx
-Licensed under the [Apache License, Version 2.0][Apache]
-Distributed under the [MIT License][mit].
-Dual licensed under the [MIT license][MIT] and [GPL license][GPL].
- 
-[Apache]: http://www.apache.org/licenses/LICENSE-2.0
-[MIT]: http://www.opensource.org/licenses/mit-license.php
-[GPL]: http://www.gnu.org/licenses/gpl.html
+
