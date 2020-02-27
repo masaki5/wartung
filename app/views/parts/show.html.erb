@@ -23,7 +23,7 @@
         <% @logs.each do |log| %>
         <tr>
           <!--log.created_at.strftime("%Y年%-m月%-d日")-->
-          <td><%= log.exchange %></td>
+          <td><%= link_to log.exchange, car_log_path(@car, log) %></td>
           <td><%= number_to_currency(log.distance) %></td>
           <td><%= log.part.name %></td>
           <td><%= link_to '履歴削除', car_log_path(@car, log), method: :delete %></td>

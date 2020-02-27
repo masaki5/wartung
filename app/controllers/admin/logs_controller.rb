@@ -1,4 +1,6 @@
 class Admin::LogsController < ApplicationController
+    before_action :authenticate_admin!
+
 
   def index
     @car = Car.find(params[:car_id])

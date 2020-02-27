@@ -1,25 +1,35 @@
-<div>
-    <h2>エンジンルーム</h2>
-    <p><%= link_to "オイル点検", dailys_oil_path %></p>
-    <p>ブレーキオイル点検</p>
-    <p>冷却水</p>
-    <p>バッテリーの点検</p>
-    <P>ウインド・ウォッシャーの量<p>
+<div class="box3">
 </div>
+<div class="row">
+    <div class="box7">
+        <div class="box8">
+            <div>
+                <h2 class="blue">エンジンルーム</h2>
+                <p class="red">*ハイブリット車のオレンジの配線には触らないようにしましょう<br>
+                    高電圧がかかっている為、感電する恐れがあります。</p>
+                <p><%= link_to "オイル点検", dailys_oil_path, :style=>"color:black;" %></p>
+                <p><%= link_to "ブレーキオイル点検", dailys_brakeoil_path, :style=>"color:black;" %></p>
+                <p><%= link_to "冷却水点検", dailys_llc_path, :style=>"color:black;" %></p>
+                <p><%= link_to "バッテリーの点検", dailys_bt_path, :style=>"color:black;" %></p>
+                <P><%= link_to "ウインド・ウォッシャー液の量", dailys_ww_path, :style=>"color:black;" %><p>
+            </div>
 
-<div>
-    <h2>車周り</h2>
-    <P>タイヤの空気圧</p>
-    <p>タイヤの亀裂、損傷及異常な摩耗</p>
-    <p>ライト類の点灯、点滅レンズの汚れ、損傷</p>
-</div>
+            <div>
+                <h2 class="blue">車周り</h2>
+                <P><%= link_to "タイヤの空気圧", dailys_air_path, :style=>"color:black;" %></p>
+                <p><%= link_to "タイヤの亀裂、損傷及異常な摩耗", dailys_tire_path, :style=>"color:black;" %></p>
+                <p><%= link_to "ライト類の点灯、点滅レンズの汚れ、損傷", dailys_light_path, :style=>"color:black;" %></p>
+            </div>
 
-<div>
-    <h2>運転席周り</h2>
-    <p>ブレーキ・ペダルの踏みしろ及ブレーキの効き</p>
-    <p>パーキングブレーキレバーの引しろ</p>
-    <P>ウインド・ウォッシャーの噴射状態</p>
-    <p>ワイパーの拭き取り状態</p>
-    <P>エンジンのかかり具合及異音</p>
-    <p>エンジンの低速・加速の状態</p>
+            <div>
+                <h2 class="blue">運転席周り</h2>
+                <p><%= link_to "ブレーキ・ペダルの踏みしろ及ブレーキの効き", dailys_pedal_path, :style=>"color:black;" %></p>
+                <p><%= link_to "パーキングブレーキレバーの引しろ", dailys_lever_path, :style=>"color:black;" %></p>
+                <P><%= link_to "ウインド・ウォッシャーの噴射状態", dailys_wwv_path, :style=>"color:black;" %></p>
+                <p><%= link_to "ワイパーの拭き取り状態", dailys_wiper_path, :style=>"color:black;" %></p>
+                <p><%= link_to "エンジンのかかり具合及異音", dailys_egv_path, :style=>"color:black;" %></p>
+                <p><%= link_to "エンジンの低速・加速の状態", dailys_egs_path, :style=>"color:black;" %></p>
+            </div>
+        </div>
+    </div>
 </div>

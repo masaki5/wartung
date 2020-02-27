@@ -68,7 +68,13 @@ body {
 }
 
 .box3 {
-	// margin-top: 20px;
+	background: image-url('image_1.jpg');
+	// opacity: 0.7;
+	background-size: cover;
+	position: fixed;
+	background-repeat: no-repeat;
+	width: 1180px;
+	height: 770px;
 }
 
 // aboutページ
@@ -96,6 +102,20 @@ body {
 	margin-left: 600px;
 }
 
+.box7 {
+	background-color: rgb(242, 244, 247);
+	width: 600px;
+	opacity: 0.9;
+	margin-left: 500px;
+	position: fixed;
+}
+
+.box8 {
+	padding: 20px;
+	margin-left: 0px;
+	text-align: center;
+}
+
 .abo {
 	text-align: center;
 	// margin-left: 10px;
@@ -104,14 +124,6 @@ body {
 .ab {
 	margin-left: 10px;
 }
-
-// p.white {
-// 	color: white;
-// }
-
-// h3.white {
-// 	color: white;
-// }
 
 .nav navbar-nav navbar-left {
 	padding: 10px;
@@ -145,6 +157,10 @@ body {
 
 .nav {
 	margin-right: 10px;
+}
+
+h2.blue {
+	color: #0275d8;
 }
 
 // 点検日赤文字
@@ -248,4 +264,140 @@ button.button2:hover {
 	background-repeat: no-repeat;
 	width: 300px;
 	height: 300px;
+}
+
+.brake {
+	background: image-url('02.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 800px;
+	height: 300px;
+}
+
+.brake2 {
+	background: image-url('021.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 300px;
+}
+
+.llc {
+	background: image-url('03.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 800px;
+	height: 300px;
+}
+
+.llc2 {
+	background: image-url('031.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 300px;
+}
+
+.bt {
+	background: image-url('04.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 800px;
+	height: 300px;
+}
+
+.bt2 {
+	background: image-url('041.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 300px;
+}
+
+.ww {
+	background: image-url('05.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 800px;
+	height: 300px;
+}
+
+.ww2 {
+	background: image-url('051.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 300px;
+	height: 300px;
+}
+
+.air {
+	background: image-url('6.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 820px;
+	height: 400px;
+}
+
+.tire {
+	background: image-url('7.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 820px;
+	height: 400px;
+}
+
+.light {
+	background: image-url('9.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 820px;
+	height: 400px;
+}
+
+.pedal {
+	background: image-url('10.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 820px;
+	height: 400px;
+}
+
+.lever {
+	background: image-url('11.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 820px;
+	height: 400px;
+}
+
+.wwv {
+	background: image-url('12.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 820px;
+	height: 400px;
+}
+
+.wiper {
+	background: image-url('13.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 820px;
+	height: 400px;
+}
+
+.egv {
+	background: image-url('14.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 820px;
+	height: 400px;
+}
+
+.egs {
+	background: image-url('15.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 820px;
+	height: 400px;
 }
