@@ -17,12 +17,12 @@
         <% if user_signed_in? %>
         <button class="button2" type="submit"><a
             class="fas fa-search"><%= link_to "マイページ", user_path(current_user), :style=>"color:white;" %></a></button>
+        自分の車の登録情報
         <% else %>
         <button class="button2" type="submit"><a
             class="fas fa-search"><%= link_to "マイページ", new_user_session_path, :style=>"color:white;" %></a></button>
+        自分の車の登録情報
         <% end %>
-        <i class="fab fa-whmcs"></i>
-        <i class="fas fa-yen-sign"></i>
       </div>
     </div>
   </div>

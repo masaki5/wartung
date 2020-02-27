@@ -1,9 +1,5 @@
 class Admin::CarsController < ApplicationController
-    #before_action :set_car, only: [:show, :edit, :update, :destroy]
-
-  def new
-    @car = Car.new
-  end
+    before_action :authenticate_admin!
 
   def show
     @car = Car.find(params[:id])

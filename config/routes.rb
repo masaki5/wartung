@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users do
       get :search, on: :collection
-      resources :cars do
+      resources :cars, only: [:show,:edit,:update,:create,:destroy] do
         resources :parts
         resources :logs
       end
