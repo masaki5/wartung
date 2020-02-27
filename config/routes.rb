@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users do
       get :search, on: :collection
-      resources :cars do
+      resources :cars, only: [:show,:edit,:update,:create,:destroy] do
         resources :parts
         resources :logs
       end
@@ -49,6 +49,19 @@ Rails.application.routes.draw do
   #  日常点検view
   get 'dailys/daily'
   get 'dailys/oil'
+  get 'dailys/brakeoil'
+  get 'dailys/llc'
+  get 'dailys/bt'
+  get 'dailys/ww'
+  get 'dailys/air'
+  get 'dailys/tire'
+  get 'dailys/light'
+  get 'dailys/pedal'
+  get 'dailys/lever'
+  get 'dailys/wwv'
+  get 'dailys/wiper'
+  get 'dailys/egv'
+  get 'dailys/egs'
 
 end
 

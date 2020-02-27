@@ -1,5 +1,5 @@
 class Admin::PartsController < ApplicationController
-
+    before_action :authenticate_admin!
 
   def index
     @parts = Part.all
@@ -22,12 +22,12 @@ class Admin::PartsController < ApplicationController
 
 
   def create
-      car = Car.find(params[:car_id])
-      part = car.parts.new(part_params)
-      part.car_id = car.id
-      part.save
-      @parts = car.parts.page(params[:page]).per(5)
-      redirect_to request.referrer
+    car = Car.find(params[:car_id])
+    part = car.parts.new(part_params)
+    part.car_id = car.id
+    part.save
+    @parts = car.parts.page(params[:page]).per(5)
+    redirect_to request.referrer
   end
 
 
