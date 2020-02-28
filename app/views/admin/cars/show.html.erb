@@ -37,7 +37,7 @@
         <td><%= @user.name %></td>
         <td><%= @car.name %></td>
         <td>
-          <%= form_for(@car) do |f| %>
+          <%= form_for @car,url: admin_user_car_path(@user, @car),method: :patch do |f| %>
           <%= f.text_field :mileage, :size=> "6" %>km
 
           <%= f.submit "走行距離変更" %>
@@ -53,7 +53,7 @@
         <td><%= @car.car_inspection %></td>
         <td><%= @car.register %></td>
         <td><button type="button" class="btn btn-primary btn-sm">
-            <%= link_to '車両情報編集', edit_admin_user_car_path(@car), :style=>"color:white;" %></td>
+            <%= link_to '車両情報編集', edit_admin_user_car_path(@user, @car), :style=>"color:white;" %></td>
       </tbody>
     </table>
   </div>
