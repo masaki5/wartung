@@ -20,7 +20,7 @@ class Admin::CarsController < ApplicationController
     car.user_id = user.id
     car.save
     cars = user.cars
-    redirect_to admin_user_path
+    redirect_to request.referrer
     # redirect_to admin_user_path(car.id)
   end
 
