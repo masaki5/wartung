@@ -9,7 +9,7 @@
 User.create!(
   [
     {
-      email: 'z@z',
+      email: 'zz@z',
       password: 'yyy666',
       name: '本田',
     },
@@ -17,6 +17,46 @@ User.create!(
       email: 'z@zz',
       password: 'yyy666',
       name: '豊田',
+    },
+    {
+      email: 'z@zzz',
+      password: 'yyy666',
+      name: '鈴木',
+    },
+    {
+      email: 'z@zzzz',
+      password: 'yyy666',
+      name: '佐藤',
+    },
+    {
+      email: 'z@zzzzz',
+      password: 'yyy666',
+      name: '田中',
+    },
+    {
+      email: 'zz@zzzzz',
+      password: 'yyy666',
+      name: 'ダイハツ',
+    },
+    {
+      email: 'zzzz@zzzzz',
+      password: 'yyy666',
+      name: '日産',
+    },
+    {
+      email: 'zzzz@zzzzz',
+      password: 'yyy666',
+      name: 'VW',
+    },
+    {
+      email: 'y@y',
+      password: 'yyy666',
+      name: 'audi',
+    },
+    {
+      email: 'y@yy',
+      password: 'yyy666',
+      name: 'volvo',
     }
   ]
 )
