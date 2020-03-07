@@ -2,6 +2,7 @@
 
 <%# <%= form_for(@car) do |f| %>
 <%= form_with model: car do |f|%>
+<%= hidden_field_tag :page, params[:page] %>
 <div>
         <%= "車両名" %>
         <%= f.text_field :name, class: 'form-control',placeholder: "車両名" %>
