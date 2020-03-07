@@ -1,1 +1,2 @@
-$('#comments_buttons_<%= @user.id %>').html("<%= j(render partial: 'cars/new', locals: {car: @car}) %>");
+$('#cars-list').html("<%= j(render partial: 'cars/table', locals: {cars: @cars}) %>");
+$('#car').html("<%= j(render partial: 'cars/new', locals: {car: @car}) %>");

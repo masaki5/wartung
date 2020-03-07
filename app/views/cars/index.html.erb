@@ -10,15 +10,8 @@
             <th>削除</th>
           </tr>
         </thead>
-
-        <tbody>
-          <% @cars.each do |car| %>
-          <tr>
-            <td><%= link_to car.name, car_path(car.id) %></td>
-            <td><%= link_to '車両編集', edit_car_path(car.id) %></td>
-            <td><%= link_to '車削除', car_path(car.id), method: :delete, data: { confirm: '本当に削除しますか?' } %></td>
-          </tr>
-          <% end %>
+        <tbody id="cars-list">
+          <%= render partial: 'cars/table', locals: { cars: @cars} %>
         </tbody>
       </table>
       <%= paginate @cars %>
@@ -26,6 +19,8 @@
         <%= link_to '戻る', :back, :style=>"color:white;" %></button>
     </div>
     <div class="col-sm-4">
-      <%= render partial: 'cars/new', locals: { car: @car} %>
+      <div id="car">
+        <%= render partial: 'cars/new', locals: { car: @car} %>
+      </div>
     </div>
   </div>

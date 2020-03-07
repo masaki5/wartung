@@ -1,0 +1,8 @@
+<% cars.each do |car| %>
+<tr>
+    <td><%= link_to car.name, car_path(car.id) %></td>
+    <td><%= link_to '車両編集', edit_car_path(car.id) %></td>
+    <td><%= link_to '車削除', car_path(car.id, page: params[:page]), method: :delete, data: { confirm: '本当に削除しますか?' }, remote: true %>
+    </td>
+</tr>
+<% end %>

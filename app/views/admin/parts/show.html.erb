@@ -26,7 +26,9 @@
           <td><%= link_to log.exchange, admin_user_car_log_path(@user, @car, log) %></td>
           <td><%= number_to_currency(log.distance) %></td>
           <td><%= log.part.name %></td>
-          <td><%= link_to '履歴削除', admin_user_car_log_path(@user,@car, log), method: :delete %></td>
+          <td>
+            <%= link_to '履歴削除', admin_user_car_log_path(@user,@car, log), method: :delete, data: { confirm: "本当に削除しますか?" } %>
+          </td>
           <% end %>
       </tbody>
     </table>
