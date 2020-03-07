@@ -2,7 +2,7 @@ class CarsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @cars = current_user.cars.all.page(params[:page]).per(5)
+    @cars = current_user.cars.page(params[:page]).per(5)
     @car = Car.new
   end
 
@@ -21,8 +21,10 @@ class CarsController < ApplicationController
     #@user = User.find(params[:user_id])
     car = Car.new(car_params)
     car.user_id = current_user.id
-    car.save
-    redirect_to cars_path(car.id)
+    car.save!
+    @cars = current_user.cars.page(params[:page]).per(5)
+    @car = Car.new
+    #redirect_to cars_path(car.id)
   end
 
   def update
@@ -33,8 +35,10 @@ class CarsController < ApplicationController
 
   def destroy
     car = Car.find(params[:id])
+    #car.user_id = current_user.id
     car.destroy
-    redirect_to cars_path
+    @cars = current_user.cars.page(params[:page]).per(5)
+    #redirect_to cars_path
   end
 
   private
