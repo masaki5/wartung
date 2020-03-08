@@ -68,6 +68,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem "refile"
 gem 'jquery-rails'
+gem 'jquery-turbolinks'
 gem 'kaminari'
 gem 'paranoia'
 gem 'pry-byebug'
