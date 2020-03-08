@@ -6,7 +6,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
-        @cars = current_user.cars.all
+        @cars = current_user.cars.page(params[:page]).per(8)
     end
 
     def edit
