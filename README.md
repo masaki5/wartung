@@ -46,5 +46,6 @@ pry-byebug
 bootstrap  
 ### デプロイ ###
 ------
+AWS(EC2,RDS,VPC)
 <img width="521" alt="スクリーンショット 2020-03-10 14 49 45" src="https://user-images.githubusercontent.com/58340131/76288031-27a13600-62e9-11ea-9e46-ad208aa62715.png">
 
