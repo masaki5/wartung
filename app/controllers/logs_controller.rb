@@ -1,5 +1,6 @@
 class LogsController < ApplicationController
     before_action :authenticate_user!
+    before_action :set_article, only:[:show, :update, :destroy]
 
   def index
     @car = Car.find(params[:car_id])
@@ -8,7 +9,6 @@ class LogsController < ApplicationController
   end
 
   def show
-    @log = Log.find(params[:id])
     @car = Car.find(params[:car_id])
     @part = @car.parts
     @logs = @log.part
@@ -26,16 +26,18 @@ class LogsController < ApplicationController
   end
 
   def update
-     log = Log.find(params[:id])
-     log.update(log_params)
+     @log.update(log_params)
      redirect_to car_log_path
   end
 
   def destroy
-      log = Log.find(params[:id])
-      log.destroy
+      @log.destroy
       redirect_to request.referrer
   end
+
+   def set_article
+   @log = Log.find(params[:id])
+   end
 
   private
 

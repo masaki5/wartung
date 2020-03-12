@@ -1,9 +1,9 @@
 class PartsController < ApplicationController
     before_action :authenticate_user!
+    before_action :set_article, only:[:show, :edit, :update, :destroy]
 
   def show
     @car = Car.find(params[:car_id])
-    @part = Part.find(params[:id])
     @log = Log.new
     @logs = @part.logs.order(exchange: :desc).page(params[:page]).per(3)
   end
@@ -18,16 +18,18 @@ class PartsController < ApplicationController
   end
 
   def update
-    part = Part.find(params[:id])
     car = Car.find(params[:car_id])
-    part.update(part_params)
+    @part.update(part_params)
     redirect_to car_part_path
   end
 
   def destroy
-    part = Part.find(params[:id])
-    part.destroy
+    @part.destroy
     redirect_to request.referrer
+  end
+
+  def set_article
+  @part = Part.find(params[:id])
   end
 
   private

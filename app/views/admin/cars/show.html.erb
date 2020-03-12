@@ -43,11 +43,6 @@
           <%= f.submit "走行距離変更" %>
           <% end %>
         </td>
-        <!--登録日経年数計算-->
-        <!---->
-        <% d1 = @car.register.strftime("%Y%m%d").to_i %>
-        <% d2 = Date.today.strftime("%Y%m%d").to_i %>
-        <% @age = (d2 - d1) /10000 %>
         <td><%= @age %>年</td>
         <td><%= @car.inspection %></td>
         <td><%= @car.car_inspection %></td>
@@ -62,9 +57,6 @@
     <div class="text-center">
       <h2><strong><i class="fas fa-wrench"></i>定期点検</strong></h2>
 
-      <% now = Date.current %>
-      <% v1 = @car.inspection %>
-      <% @v1 = (v1 - now).to_i %>
       <% if @v1 > 0 %>
       <p>1年点検まで残り<%= @v1 %>日</p>
       <% else %>
@@ -72,8 +64,6 @@
       <p class="red">点検時期です</p>
       <% end %>
 
-      <% v2 = @car.car_inspection %>
-      <% @v2 = (v2 - now).to_i %>
       <% if @v2 > 0 %>
       <p>車検まで残り<%= @v2 %>日</p>
       <% else %>
@@ -121,8 +111,7 @@
           <td>
             <%if log && log.next%>
             <% c = log.next %>
-            <% now = Date.current %>
-            <% y  = (c - now).to_i %>
+            <% y  = (c - @now).to_i %>
             <% if y > 0 %>
             残り<%= y %>日
             <% else %>
