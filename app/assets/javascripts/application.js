@@ -15,6 +15,13 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require toastr
 //= require bootstrap-sprockets
 //= require popper
 //= require_tree .
+
+$('.toast')
+    .toast({
+        autohide: false
+    })
+    .toast('show')
