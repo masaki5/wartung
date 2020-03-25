@@ -20,11 +20,6 @@
 body {
 	margin-top: 0px;
 	padding: 0px;
-	// background-image: url("pyr.jpg");
-	// opacity: 0.7;
-	// background-color: rgba(255, 255, 255, 0.9);
-	// background-blend-mode: lighten;
-	// background-size: cover;
 	background-color: whitesmoke;
 	font-family: 'Ubuntu Mono',
 		monospace;
@@ -47,19 +42,8 @@ body {
 .box1 {
 	background-color: whitesmoke;
 	margin-top: 0px;
-	// position: fixed;
-	// height: 98vh;
-	// height: 900px;
 	width: 1420px;
 }
-
-// ヘッダー背景
-// .box2 {
-// 	background-color: #0275d8;
-// 	position: fixed;
-// 	color: #fff;
-// 	height: 5vh;
-// }
 
 // サイドバー背景
 .box2 {
@@ -72,7 +56,6 @@ body {
 
 .box3 {
 	background: image-url('image_1.jpg');
-	// opacity: 0.7;
 	background-size: cover;
 	position: fixed;
 	background-repeat: no-repeat;
@@ -83,7 +66,6 @@ body {
 // aboutページ
 .box4 {
 	background: image-url('8.jpg');
-	// opacity: 0.7;
 	background-size: cover;
 	position: fixed;
 	background-repeat: no-repeat;
@@ -121,7 +103,6 @@ body {
 
 .abo {
 	text-align: center;
-	// margin-left: 10px;
 }
 
 .ab {
@@ -139,7 +120,6 @@ body {
 
 .top {
 	font-size: 33px;
-	// margin-left: 20px;
 	border-bottom: solid 4px #0275d8;
 }
 

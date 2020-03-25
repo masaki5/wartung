@@ -33,7 +33,6 @@ class Admin::PartsController < ApplicationController
 
   def update
     part = Part.find(params[:id])
-    #car = Car.find(params[:car_id])
     part.update(part_params)
     redirect_to request.referrer
   end

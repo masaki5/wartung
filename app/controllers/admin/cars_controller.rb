@@ -32,7 +32,6 @@ class Admin::CarsController < ApplicationController
     car.save
     cars = user.cars
     redirect_to request.referrer
-    # redirect_to admin_user_path(car.id)
   end
 
   def update
