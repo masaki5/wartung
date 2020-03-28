@@ -168,15 +168,18 @@ h2.text3 {
 }
 
 // top/button
-button.button2 {
+.button2 {
 	font-size: 50px;
 	font-weight: bold;
+	display: block;
 	padding: 5px 30px;
 	width: 800px;
 	height: 200px;
 	background-color: #0275d8;
 	color: #fff;
 	border-style: none;
+	display: table-cell;
+	vertical-align: middle;
 
 	box-shadow: 2px 2px 3px 1px #666;
 	-moz-box-shadow: 2px 2px 3px 1px #666;
@@ -185,13 +188,22 @@ button.button2 {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+
+	&:hover {
+		background-color: #24d;
+		color: #fff;
+		text-decoration: none;
+	}
 }
 
+/*
+a.button2:hover,
 button.button2:hover {
 	background-color: #24d;
 	color: #fff;
 
 }
+*/
 
 .select {
 	color: white;

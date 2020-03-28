@@ -1,29 +1,32 @@
 <div class="row">
-  <script type="text/javascript">
-    toastr.info("ようこそ")
-  </script>
   <div class="col-sm-2">
   </div>
   <div class="col-sm-8">
     <div class="text-center">
       <div class="top2">
-        <button class="button2" type="submit">
-          <i class="fas fa-car-side"></i>
-          <%= link_to "車両一覧",cars_path, :style=>"color:white;" %></button>
-        定期点検や消耗品交換などの履歴・予定管理
-        <br><br>
-        <button class="button2" type="submit">
-          <i class="fas fa-wrench"></i>
-          <%= link_to "日常点検",dailys_daily_path, :style=>"color:white;" %></button>
+        <%= link_to cars_path, class: "button2" do %>
+        <i class="fas fa-car-side"></i>
+        車両一覧
+        <% end %>
+        <div>定期点検や消耗品交換などの履歴・予定管理</div>
+        <br>
+        <%= link_to dailys_daily_path, class: "button2" do %>
+        <i class="fas fa-wrench"></i>
+        日常点検
+        <% end %>
         日常的なクルマの点検方法の説明
         <br><br>
         <% if user_signed_in? %>
-        <button class="button2" type="submit"><a
-            class="fas fa-search"><%= link_to "マイページ", user_path(current_user), :style=>"color:white;" %></a></button>
+        <%= link_to user_path(current_user), class: "button2" do %>
+        <i class="fas fa-search"></i>
+        マイページ
+        <% end %>
         自分の車の登録情報
         <% else %>
-        <button class="button2" type="submit"><a
-            class="fas fa-search"><%= link_to "マイページ", new_user_session_path, :style=>"color:white;" %></a></button>
+        <%= link_to new_user_session_path, class: "button2" do %>
+        <i class="fas fa-search"></i>
+        マイページ
+        <% end %>
         自分の車の登録情報
         <% end %>
       </div>
