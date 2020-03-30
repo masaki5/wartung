@@ -14,7 +14,6 @@ class Admin::LogsController < ApplicationController
     @user = User.find(params[:user_id])
     @log = Log.find(params[:id])
     @car = Car.find(params[:car_id])
-    #@part = Part.find(params[:part_id])
     @part = @car.parts
     @logs = @log.part
   end

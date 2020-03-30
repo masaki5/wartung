@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_article, only:[:show, :edit, :update, :destroy]
 
   def index
     @cars = current_user.cars.page(params[:page]).per(5)
@@ -7,38 +8,45 @@ class CarsController < ApplicationController
   end
 
   def show
-    @car = Car.find(params[:id])
 	  @part = Part.new
     @parts = @car.parts.page(params[:page]).per(5)
     @log = @car.logs
+    # 登録日年計算
+    d1 = @car.register.strftime("%Y%m%d").to_i
+    d2 = Date.today.strftime("%Y%m%d").to_i
+    @age = (d2 - d1) /10000
+    #残り点検日
+    now = Date.current
+    v1 = @car.inspection
+    @v1 = (v1 - now).to_i
+    #残り点検日
+    v2 = @car.car_inspection
+    @v2 = (v2 - now).to_i
   end
 
   def edit
-      @car = Car.find(params[:id])
   end
 
   def create
-    #@user = User.find(params[:user_id])
     car = Car.new(car_params)
     car.user_id = current_user.id
     car.save!
     @cars = current_user.cars.page(params[:page]).per(5)
     @car = Car.new
-    #redirect_to cars_path(car.id)
   end
 
   def update
-    car = Car.find(params[:id])
-    car.update(car_params)
+    @car.update(car_params)
     redirect_to car_path
   end
 
   def destroy
-    car = Car.find(params[:id])
-    #car.user_id = current_user.id
-    car.destroy
+    @car.destroy
     @cars = current_user.cars.page(params[:page]).per(5)
-    #redirect_to cars_path
+  end
+
+  def set_article
+  @car = Car.find(params[:id])
   end
 
   private

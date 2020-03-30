@@ -1,22 +1,24 @@
 class UsersController < ApplicationController
     before_action :authenticate_user!
+    before_action :set_article, only:[:show, :edit, :update]
 
     def index
     end
 
     def show
-        @user = User.find(params[:id])
-        @cars = current_user.cars.all
+        @cars = current_user.cars.page(params[:page]).per(8)
     end
 
     def edit
-        @user = User.find(params[:id])
     end
 
     def update
-        user = User.find(params[:id])
-        user.update(user_params)
+        @user.update(user_params)
         redirect_to request.referrer
+    end
+
+    def set_article
+    @user = User.find(params[:id])
     end
 
     private

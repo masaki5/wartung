@@ -10,18 +10,16 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *=require toastr
  */
 
 @import "bootstrap";
+@import "toastr";
+
 
 body {
 	margin-top: 0px;
 	padding: 0px;
-	// background-image: url("pyr.jpg");
-	// opacity: 0.7;
-	// background-color: rgba(255, 255, 255, 0.9);
-	// background-blend-mode: lighten;
-	// background-size: cover;
 	background-color: whitesmoke;
 	font-family: 'Ubuntu Mono',
 		monospace;
@@ -44,19 +42,8 @@ body {
 .box1 {
 	background-color: whitesmoke;
 	margin-top: 0px;
-	// position: fixed;
-	// height: 98vh;
-	// height: 900px;
 	width: 1420px;
 }
-
-// ヘッダー背景
-// .box2 {
-// 	background-color: #0275d8;
-// 	position: fixed;
-// 	color: #fff;
-// 	height: 5vh;
-// }
 
 // サイドバー背景
 .box2 {
@@ -69,7 +56,6 @@ body {
 
 .box3 {
 	background: image-url('image_1.jpg');
-	// opacity: 0.7;
 	background-size: cover;
 	position: fixed;
 	background-repeat: no-repeat;
@@ -80,7 +66,6 @@ body {
 // aboutページ
 .box4 {
 	background: image-url('8.jpg');
-	// opacity: 0.7;
 	background-size: cover;
 	position: fixed;
 	background-repeat: no-repeat;
@@ -118,7 +103,6 @@ body {
 
 .abo {
 	text-align: center;
-	// margin-left: 10px;
 }
 
 .ab {
@@ -136,7 +120,6 @@ body {
 
 .top {
 	font-size: 33px;
-	// margin-left: 20px;
 	border-bottom: solid 4px #0275d8;
 }
 
@@ -185,15 +168,18 @@ h2.text3 {
 }
 
 // top/button
-button.button2 {
+.button2 {
 	font-size: 50px;
 	font-weight: bold;
+	display: block;
 	padding: 5px 30px;
 	width: 800px;
 	height: 200px;
 	background-color: #0275d8;
 	color: #fff;
 	border-style: none;
+	display: table-cell;
+	vertical-align: middle;
 
 	box-shadow: 2px 2px 3px 1px #666;
 	-moz-box-shadow: 2px 2px 3px 1px #666;
@@ -202,13 +188,22 @@ button.button2 {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+
+	&:hover {
+		background-color: #24d;
+		color: #fff;
+		text-decoration: none;
+	}
 }
 
+/*
+a.button2:hover,
 button.button2:hover {
 	background-color: #24d;
 	color: #fff;
 
 }
+*/
 
 .select {
 	color: white;

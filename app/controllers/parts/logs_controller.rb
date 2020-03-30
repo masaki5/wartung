@@ -1,14 +1,6 @@
 class Parts::LogsController < ApplicationController
-  #before_action :set_log, only: [:show, :edit, :update, :destroy]
-
 
   def index
-    #   @car = Car.find(params[:car_id])
-    # @logs = Log.where(params[:id]).order(created_at: :desc)
-    # @parts = Part.where(params[:part_id])
-    # #@partss = Part.find(params[:part_id])
-    # @log = @car.logs
-    # @part = @car.parts
   end
 
   def show
@@ -23,16 +15,12 @@ class Parts::LogsController < ApplicationController
     @parts = Part.all
     @car = Car.find(params[:car_id])
     @part = Part.find(params[:part_id])
-    #@part = Part.find(params[:part_id])
-   # @parts = car.part
   end
 
   def edit
      @log = Log.find(params[:id])
      @car = Car.find(params[:car_id])
-    #  @part = Part.find(params[:part_id])
   end
-
 
   def create
      part = Part.find(params[:part_id])
@@ -52,8 +40,6 @@ class Parts::LogsController < ApplicationController
      log.update(log_params)
      redirect_to cars_logs_path
   end
-
-
 
   def destroy
       log = Log.find(params[:id])
