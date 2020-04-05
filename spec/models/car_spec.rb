@@ -48,5 +48,10 @@ RSpec.describe 'Carモデルのテスト', type: :model do
         expect(Car.reflect_on_association(:parts).macro).to eq :has_many
       end
     end
+    context 'Userモデルとの関係' do
+      it 'N:1となっている' do
+        expect(Car.reflect_on_association(:user).macro).to eq :belongs_to
+      end
+    end
   end
 end
